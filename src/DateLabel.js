@@ -32,14 +32,32 @@ const{setStartDate}=useContext(Data4);
     // Splitting the formatted date to extract year, month, and day
     const [dayMonth, year] = formattedDate.split(', ');
     const [day, month] = dayMonth.split(' ');
-    
+        
 
     console.log({selectedDate})
 
     return (
       <>
-      <p style={{fontSize:'20px'}}> {month} {year}</p>
-     <p>{day}</p>
+    
+
+     <p
+            data-cy="departureDate"
+            className="blackText font20 code lineHeight36 snipcss0-4-18-21 snipcss0-3-17-20"
+          >
+            <span className="font30 latoBlack snipcss0-5-21-22 snipcss0-4-20-21">
+           
+            </span>
+            <span className="snipcss0-5-21-23 snipcss0-4-20-22">  {month}</span>
+            <span className="shortYear snipcss0-5-21-24 snipcss0-4-20-23">
+          {year}
+            </span>
+          </p>
+          <p
+            data-cy="departureDay"
+            className="code snipcss0-4-18-25 snipcss0-3-17-24"
+          >
+          {day}
+          </p>
      </>
     );
   };

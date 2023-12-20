@@ -142,7 +142,7 @@ export default function Buttonsel() {
   };
   return (
     <>
-    { <div style={{backgroundColor:'#ffffff',width:'45%',height:'360px',marginTop:'5%',paddingTop:'10px',zIndex:'5'}} className='buttonsel'>
+    { <div style={{backgroundColor:'#ffffff',width:'600px',height:'360px',marginTop:'5%',paddingTop:'10px',zIndex:'5'}} className='buttonsel'>
     <Stack spacing={1} alignItems="center">
       <div className="fltTravellers gbTravellers snipcss-BfyPO" >
   <div className="appendBottom20 snipcss0-0-0-1">

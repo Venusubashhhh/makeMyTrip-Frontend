@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.img {
+  background-image: url('./assets/Screenshot\ from\ 2023-12-20\ 10-21-32.png'); /* Adjust the path based on your folder structure */
+  background-size: cover;
+  /* Add more styles as needed */
+}

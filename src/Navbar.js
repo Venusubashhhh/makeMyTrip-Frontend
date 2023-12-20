@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { createContext, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import img from'./assets/Screenshot from 2023-12-20 10-21-32.png'
+import Sample from './Sample'
+import { useState } from 'react'
+import { Flight, Signup } from './App'
+
+export const Visiblity=createContext()
 function Navbar() {
+  const[flagg,setflagg]=useState(false);
+const{setflights,sign,setsign}=useContext(Flight)
   return (
-    <div>
+    <div style={{backgroundImage:`url(${img})`,
+    backgroundSize: 'cover',}}>
 <div data-cy="landingContainer" className="landingContainer eng snipcss-4gB7r">
-<nav style={{backgroundColor:'black',display:'flex'}}> 
+<nav style={{display:'flex'}}> 
 <div className="makeFlex hrtlCenter prependTop5 appendBottom50">
   <Link to='/'>
     <a data-cy="mmtLogo" className="mmtLogo makeFlex">
@@ -22,7 +31,7 @@ function Navbar() {
         data-cy="SuperOffersSection_45"
         className="makeFlex perfectCenter makeRelative"
         style={{marginLeft:
-          '300px',marginTop:'10px'}}
+          '150px',marginTop:'10px'}}
       >
         <span className="headerOfferIcon__offericonCont">
           <span className="headerOfferIcon--text">%</span>
@@ -45,7 +54,7 @@ function Navbar() {
         className="makeFlex perfectCenter makeRelative myBizIntro"
         id="showBizUpgradePopup"
         style={{marginLeft:
-          '10px',marginTop:'1px'}}
+          '0px',marginTop:'10px'}}
       >
         <span
           data-cy="myBizIcon"
@@ -88,21 +97,24 @@ function Navbar() {
       </li>
       </Link>
       <Link t0='/accounts'>
+        <div style={{backgroundColor:'#008cff' }}   onClick={()=>setsign(true)}  >
       <li
         data-cy="account"
         className="makeFlex hrtlCenter font10 makeRelative lhUser userLoggedOut"
         style={{marginLeft:
-          '10px',marginTop:'16px'}}
+          '10px',marginTop:'16px', backgroundColor:'#008cff'}}
+        
       >
         <span className="userNameIcon whiteText makeFlex perfectCenter latoBlack appendRight10">
           <span data-cy="myIconWhite" className="landingSprite myIconWhite">
             &nbsp;
           </span>
         </span>
-        <div className="makeFlex column flexOne whiteText latoBold" style={{marginLeft:'10px'}}>
+        <div className="makeFlex column flexOne whiteText latoBold" style={{marginLeft:'10px', backgroundColor:'#008cff'}} >
           <p data-cy="LoginHeaderText">Login or Create Account</p>
         </div>
       </li>
+      </div>
       </Link>
       <li className="makeFlex column makeRelative vrtlCenter conCurLang geoSwitcher"style={{marginTop:'9px'}}>
         <div>
@@ -141,9 +153,9 @@ function Navbar() {
           </a>
         </span>
         <nav className="">
-          <ul className="makeFlex font12 headerIconsGap" >
+          <ul className="makeFlex font12 headerIconsGap" style={{paddingTop:'20px'}} >
            <Link to='/flights'>
-          <li data-cy="menu_Flights" className="menu_Flights">
+          <li data-cy="menu_Flights" className="menu_Flights" style={{}}>
               <span data-cy="item-wrapper">
                 <a
                   href="https://www.makemytrip.com/flights/"
@@ -160,7 +172,7 @@ function Navbar() {
             </li>
             </Link>
             <Link to='/hotels'>
-            <li data-cy="menu_Hotels" className="menu_Hotels">
+            <li data-cy="menu_Hotels" className="menu_Hotels" style={{marginLeft:'-30px',}}>
               <span data-cy="item-wrapper">
                 <a
                   className="headerIcons makeFlex hrtlCenter column">
@@ -174,7 +186,7 @@ function Navbar() {
               </span>
             </li>
             </Link>
-            <li data-cy="menu_Homestays" className="menu_Homestays">
+            <li data-cy="menu_Homestays" className="menu_Homestays" style={{marginLeft:'-30px',}}>
               <span data-cy="item-wrapper">
                 <a
                 
@@ -191,7 +203,7 @@ function Navbar() {
             </li>
             <li
               data-cy="menu_Holidays"
-              className="menu_Holidays removeItemMargin"
+              className="menu_Holidays removeItemMargin" style={{marginLeft:'-30px',}}
             >
               <span data-cy="item-wrapper">
                 <a
@@ -208,7 +220,7 @@ function Navbar() {
               </span>
             </li>
             <Link to='/trains'></Link>
-            <li data-cy="menu_Trains" className="menu_Trains" style={{marginLeft:'-40px'}}>
+            <li data-cy="menu_Trains" className="menu_Trains" style={{marginLeft:'-70px'}}>
               <span data-cy="item-wrapper">
                 <a
                   className="headerIcons makeFlex hrtlCenter column"
@@ -222,7 +234,7 @@ function Navbar() {
                 </a>
               </span>
             </li>
-            <li data-cy="menu_Buses" className="menu_Buses">
+            <li data-cy="menu_Buses" className="menu_Buses" style={{marginLeft:'-30px',}}>
               <span data-cy="item-wrapper">
                 <a
               
@@ -237,7 +249,7 @@ function Navbar() {
                 </a>
               </span>
             </li>
-            <li data-cy="menu_Cabs" className="menu_Cabs">
+            <li data-cy="menu_Cabs" className="menu_Cabs" style={{marginLeft:'-30px',}}>
               <span data-cy="item-wrapper">
                 <a
               
@@ -252,7 +264,7 @@ function Navbar() {
                 </a>
               </span>
             </li>
-            <li data-cy="menu_Forex" className="menu_Forex">
+            <li data-cy="menu_Forex" className="menu_Forex" style={{marginLeft:'-30px',}}>
               <span data-cy="item-wrapper">
                 <a
                   className="headerIcons makeFlex hrtlCenter column"
@@ -267,7 +279,7 @@ function Navbar() {
               </span>
               <span className="font10 latoBold whiteText newTagImage">new</span>
             </li>
-            <li data-cy="menu_TravelInsurance" className="menu_TravelInsurance" style={{marginLeft:'-40px'}}>
+            <li data-cy="menu_TravelInsurance" className="menu_TravelInsurance" style={{marginLeft:'-30px'}}>
               <span data-cy="item-wrapper">
                 <a
                
@@ -328,7 +340,7 @@ function Navbar() {
   </div>
   </div>
    </nav>
- 
+   {flagg && <Visiblity.Provider value={{setflagg}}><Sample /></Visiblity.Provider> }
 </div> 
 
     </div>

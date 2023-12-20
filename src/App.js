@@ -22,24 +22,40 @@ import CardSlider from './SimpleSlider';
 import SimpleSlider from './SimpleSlider';
 import SimpleSlider2 from './SimpleSlider2';
 import SimpleSlider3 from './SampleSlider3';
-import { createContext, useState } from 'react';
-const Flight=createContext();
+import { createContext, useEffect, useState } from 'react';
+import CheckBoxComponent from './CheckBoxComponent';
+import Login from './Login';
+import Otp from './Otp';
+import Password from './Password';
+import Sample from './Sample';
+import Otpsuccess from './Otpsuccess';
+import Profile from './Profile';
+export const Flight=createContext();
+export const Signup=createContext()
 function App() {
-const [flight,setflight]=useState([]);
+const [flights,setflights]=useState([]);
+const [sign,setsign]=useState(false);
+useEffect(()=>{
+  console.log('app.js',flights)
+  
 
+},[flights])
+useEffect(()=>{
+  console.log(sign)
+  
+
+},[sign])
   return (
     <div className="App">
 <Routes>
-  <Route path='/' element={<Flight.Provider value={{setflight}}><Home/></Flight.Provider>}></Route>
+  <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign}}><Home/></Flight.Provider>}></Route> 
   <Route path='/mytrips' element={<Mytrips/>}></Route> 
   <Route path='/offers' element={<Offers/>}></Route>
   <Route path='/accounts' element={<Accounts/>}></Route>
-  <Route path='/flights' element={<Flights/>}></Route>
+  <Route path='/flights' element={<Flight.Provider value={{flights}}><Flights/></Flight.Provider>}></Route>
   <Route path='/trains' element={<Trains/>}></Route>
   <Route path='/hotels' element={<Hotels/>}></Route>
 </Routes>
-
-
     </div>
   );
 }
