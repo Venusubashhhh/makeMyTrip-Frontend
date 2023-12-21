@@ -13,6 +13,7 @@ export const Data2=createContext();
 export const Data3=createContext();
 export const Data4=createContext();
 export const Data5=createContext();
+export const Data6=createContext();
 function Aeroplane() {
   const[flag,setflag]=useState(false)
   const[flag1,setflag1]=useState(false)
@@ -30,6 +31,10 @@ function Aeroplane() {
   const[totalmembers,settotalmembers]=useState('1');
   const[classs,setclasss]=useState('Premium Economy');
 const{setflights}=useContext(Flight);
+const[month,setmonth]=useState('20 Mar 23');
+const[year,setyear]=useState('');
+const[day,setday]=useState('Sunday');
+const[dayinnum,setdayinnum]=('20')
   function senddata()
   {
    
@@ -344,23 +349,23 @@ const{setflights}=useContext(Flight);
 style={{marginTop:'30px'}}>
   <div className="makeFlex hrtlCenter">
     <ul className="fswTabs latoRegular darkGreyText ">
-      <li data-cy="oneWayTrip" className="selected">
+      <li data-cy="oneWayTrip" >
       <input type="radio" name="oneway" placeholder="" />
            
         One Way
       </li>
-      <li data-cy="roundTrip" className="">
+      <li data-cy="roundTrip" className="" style={{marginLeft:'-25px'}}>
       <input type="radio" name="oneway" placeholder="" />
            
         Round Trip
       </li>
-      <li data-cy="mulitiCityTrip" className="">
+      <li data-cy="mulitiCityTrip" className="" style={{marginLeft:'-15px'}}>
       <input type="radio" name="oneway" placeholder="" />
            
         Multi City
       </li>
     </ul>
-    <div className="pushRight makeFlex hrtlCenter">
+    <div className="pushRight makeFlex hrtlCenter" style={{marginLeft:'42%'}}>
       <p className="widgetTitle flexOne">
         Book&nbsp;
         <a href="/international-flights/" className="darkGreyText">
@@ -474,9 +479,19 @@ style={{marginTop:'30px'}}>
             style={{
              width:'150px'
             }}
-            onClick={()=>setflag3(!flag3)}>
-             <span className="lbl_input appendBottom10 snipcss0-5-30-31 snipcss0-4-29-30">    Departure</span>
-           <Data4.Provider value={{setStartDate}}><DateLabel/></Data4.Provider>
+            onClick={()=>setflag4(true)}>
+  <label className="snipcss0-4-29-30 snipcss0-3-28-29">
+            <span className="lbl_input appendBottom10 snipcss0-5-30-31 snipcss0-4-29-30">
+             Departure
+  </span>
+   { !flag4 && <p className="blackText font20 code lineHeight36 snipcss0-4-18-21 snipcss0-3-17-20">
+        <span className="font30 latoBlack snipcss0-5-21-22 snipcss0-4-20-21">{month.slice(0,2)}</span>
+        <span className="snipcss0-5-21-23 snipcss0-4-20-22">{month.slice(2)}</span>
+        <span className="shortYear snipcss0-5-21-24 snipcss0-4-20-23">{year ? year.slice(-2) : ''}</span>
+      </p>}
+     {!flag4 && <p className="code snipcss0-4-18-25 snipcss0-3-17-24">{day}</p> }
+          </label>
+       {flag4 && <Data6.Provider value={{day,setday,year,setyear,month,setmonth,flag4,setflag4}}><Data4.Provider value={{setStartDate}}><DateLabel/></Data4.Provider></Data6.Provider>}
           </div>
       <div className="flt_fsw_inputBox dates reDates inactiveWidget snipcss0-2-2-26 snipcss0-1-1-25">
         <div className="returnPersuasionTooltip hide snipcss0-3-26-27 snipcss0-2-25-26">
@@ -539,17 +554,17 @@ style={{marginTop:'30px'}}>
           <br className="snipcss0-4-45-46" />
           Fare Type:
         </span>
-        <ul style={{display:'flex',backgroundColor:'#f2f2f2'}}>
-        <input type="radio" name="oneway" placeholder="" />
-          <li >
-
-            <p className="snipcss0-5-51-52">
-              Regular
-              <br className="snipcss0-6-49-50" />
-              Fares
-            </p>
-          </li>
-          <input type="radio" name="oneway" placeholder="" />
+        <ul style={{display:'flex',backgroundColor:'#f2f2f2',paddingTop:' auto 5px',marginLeft:'5px'}}>
+        <input type="radio" name="oneway" style={{marginLeft:'10px'}} placeholder="" />
+        <li className="font12 blackText wrapFilter snipcss0-4-47-63" >
+      
+      <p className="snipcss0-5-63-64">
+    Regular
+    <br className="snipcss0-6-52-53" />
+        Fares
+      </p>  
+    </li>
+          <input type="radio" name="oneway" placeholder="" style={{marginLeft:'-35px'}}/>
           <li className="font12 blackText wrapFilter snipcss0-4-47-51">
         
             <p className="snipcss0-5-51-52">
@@ -560,21 +575,21 @@ style={{marginTop:'30px'}}>
            
           </li>
           <input type="radio" name="oneway" placeholder="" />
-          <li className="font12 blackText wrapFilter snipcss0-4-47-57">
+          <li className="font12 blackText wrapFilter snipcss0-4-47-57" style={{marginRight:'-30px'}}>
         
             <p className="snipcss0-5-57-58">
               Student
-              <br className="snipcss0-6-58-59" />
+              <br className="snipcss0-6-76-77" />
               Fares
             </p>
             
           </li>
           <input type="radio" name="oneway" placeholder="" />
-          <li className="font12 blackText wrapFilter snipcss0-4-47-63">
+          <li className="font12 blackText wrapFilter snipcss0-4-47-63" >
       
             <p className="snipcss0-5-63-64">
               Senior Citizen
-              <br className="snipcss0-6-64-65" />
+             
               Fares
             </p>
             
@@ -585,8 +600,9 @@ style={{marginTop:'30px'}}>
           <li className="font12 blackText wrapFilter snipcss0-4-47-69">
         
             <p className="snipcss0-5-69-70">
-              Doctors &amp; Nurses
-              <br className="snipcss0-6-70-71" />
+              Doctors & Nurses
+            
+       
               Fares
             </p>
           
@@ -596,7 +612,7 @@ style={{marginTop:'30px'}}>
      
             <p className="disabled snipcss0-5-75-76">
               Double Seat
-              <br className="snipcss0-6-76-77" />
+             
               Fares
             </p>
            

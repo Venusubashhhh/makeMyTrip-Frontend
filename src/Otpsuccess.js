@@ -1,14 +1,20 @@
 import React, { useContext, useState } from 'react'
 import { Email } from './Sample';
+import { Flight } from './App';
 import axios from 'axios';
 function Otpsuccess() {
-    const [username,setusername]=useState('');
+    const [usersname,setusersname]=useState('');
     const [password,setpassword]=useState('');
     const {setflag3,inputValue}=useContext(Email);
+    const {setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}=useContext(Flight)
+  
     function sendpass(e)
     {
         e.preventDefault();
-axios.post('https://backend-mmt.onrender.com/setPassword',{email:inputValue,name:username,password:password,}).then((res)=>console.log(res)).catch((err)=>console.log(err))
+axios.post('https://backend-mmt.onrender.com/setPassword',{email:inputValue,name:usersname,password:password,}).then((res)=>{console.log(res)
+setconfirmflag(false);
+setusername(usersname);
+}).catch((err)=>console.log(err))
     }
   return (
     <div >
@@ -55,8 +61,8 @@ axios.post('https://backend-mmt.onrender.com/setPassword',{email:inputValue,name
             maxLength={40}
             placeholder="Enter Your Full Name"
             type="text"
-            value={username}
-            onChange={(e)=>setusername(e.target.value)}
+            value={usersname}
+            onChange={(e)=>setusersname(e.target.value)}
           />
         </div>
       </div>

@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
 import axios from 'axios';
 import { Email } from './Sample';
+import { Flight } from './App';
 import { useState } from 'react';
 function Password() {
     const{inputValue}=useContext(Email)
     const [password, setpassword] = useState('');
+   
     const [flag,setflag]=useState('');
-
+    const {setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}=useContext(Flight)
+  
     const handleChange = (event) => {
       setpassword(event.target.value);
     };
@@ -15,7 +18,7 @@ function Password() {
 console.log('submit')
     axios.post('https://backend-mmt.onrender.com/setPassword',{
         email:inputValue,password:password}).then((res)=>{console.log(res)
-        
+        setpassflag(false);
         }).catch((err)=>console.log(err));
   }
   return (

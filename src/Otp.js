@@ -2,9 +2,12 @@ import React, { useContext, useEffect } from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 import { Email } from './Sample';
+import { Flight,Otpp } from './App';
 function Otp() {
-
+    const{otpflag,setotpflag}=useContext(Otpp);
    const {inputValue,setflag4}=useContext(Email)
+   const {setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}=useContext(Flight)
+  
 const[otp,setotp]=useState('')
 
   useEffect(()=>{
@@ -20,7 +23,8 @@ e.preventDefault();
     otp:otp
 
     }).then((res)=>{console.log(res)
-    setflag4(true);
+    setconfirmflag(true);
+    setotpflag(false)
     }).then((res)=>console.log(res))
   }
   return (

@@ -17,7 +17,7 @@ const{setflights,sign,setsign}=useContext(Flight)
 <div className="makeFlex hrtlCenter prependTop5 appendBottom50">
   <Link to='/'>
     <a data-cy="mmtLogo" className="mmtLogo makeFlex">
-      <picture className="" style={{marginLeft:'70px',width:'100%'}}>
+      <picture className="" style={{marginLeft:'70px',width:'100%',marginTop:'-10px'}}>
         <img
           src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
           alt="Make My Trip"
@@ -31,7 +31,7 @@ const{setflights,sign,setsign}=useContext(Flight)
         data-cy="SuperOffersSection_45"
         className="makeFlex perfectCenter makeRelative"
         style={{marginLeft:
-          '150px',marginTop:'10px'}}
+          '150px',}}
       >
         <span className="headerOfferIcon__offericonCont">
           <span className="headerOfferIcon--text">%</span>
@@ -54,7 +54,7 @@ const{setflights,sign,setsign}=useContext(Flight)
         className="makeFlex perfectCenter makeRelative myBizIntro"
         id="showBizUpgradePopup"
         style={{marginLeft:
-          '0px',marginTop:'10px'}}
+          '-40px',width:'250px',marginTop:'-2px'}}
       >
         <span
           data-cy="myBizIcon"
@@ -62,11 +62,10 @@ const{setflights,sign,setsign}=useContext(Flight)
         >
           &nbsp;
         </span>
-        <div className="appendRight5" style={{marginLeft:'10px'}}>
+        <div className="appendRight5" style={{marginLeft:'10px',  }}>
           <p className="whiteText">
-            <span data-cy="myBizText" className="latoBold">
-              Introducing myBiz
-            </span>
+            <span data-cy="myBizText" className="latoBold" style={{fontSize:'14px',fontWeight:'700'}}>
+              Introducing My Biz</span>
           </p>
           <p data-cy="myBizSubText" className="font10 whiteText">
             Business Travel Solution
@@ -76,7 +75,7 @@ const{setflights,sign,setsign}=useContext(Flight)
       </Link>
       <Link to='/mytrips'>
       <li data-cy="myTrips" className="makeFlex hrtlCenter lhMyTrips"  style={{marginLeft:
-          '20px',marginTop:'10px'}}>
+          '0px',marginTop:'0px'}}>
         <span
           data-cy="myTripsIcon"
           className="landingSprite myTripsIcon appendRight10"
@@ -97,13 +96,13 @@ const{setflights,sign,setsign}=useContext(Flight)
       </li>
       </Link>
       <Link t0='/accounts'>
-        <div style={{backgroundColor:'#008cff' }}   onClick={()=>setsign(true)}  >
+        <div style={{backgroundColor:'#008cff',borderRadius:'4px' }}   onClick={()=>setsign(true)}  >
       <li
         data-cy="account"
         className="makeFlex hrtlCenter font10 makeRelative lhUser userLoggedOut"
         style={{marginLeft:
-          '10px',marginTop:'16px', backgroundColor:'#008cff'}}
-        
+          '10px',marginTop:'0px',height:'43px'}}
+          onClick={()=>setsign(true)}
       >
         <span className="userNameIcon whiteText makeFlex perfectCenter latoBlack appendRight10">
           <span data-cy="myIconWhite" className="landingSprite myIconWhite">
@@ -116,7 +115,7 @@ const{setflights,sign,setsign}=useContext(Flight)
       </li>
       </div>
       </Link>
-      <li className="makeFlex column makeRelative vrtlCenter conCurLang geoSwitcher"style={{marginTop:'9px'}}>
+      <li className="makeFlex column makeRelative vrtlCenter conCurLang geoSwitcher"style={{marginTop:'px',backgroundColor:'hsla(0,0%,100%,.15)',borderRadius:'4px',marginLeft:''}}>
         <div>
           <div
             data-cy="LanguageSwitcherWidget"
@@ -129,6 +128,7 @@ const{setflights,sign,setsign}=useContext(Flight)
             <span
               data-cy="switcherDownArrow"
               className="switcherDownArrow appendLeft10"
+            style={{marginLeft:'7px'}}
             ></span>
           </div>
         </div>
@@ -153,7 +153,7 @@ const{setflights,sign,setsign}=useContext(Flight)
           </a>
         </span>
         <nav className="">
-          <ul className="makeFlex font12 headerIconsGap" style={{paddingTop:'20px'}} >
+          <ul className="makeFlex font12 headerIconsGap" style={{paddingTop:'10px'}} >
            <Link to='/flights'>
           <li data-cy="menu_Flights" className="menu_Flights" style={{}}>
               <span data-cy="item-wrapper">
@@ -264,7 +264,7 @@ const{setflights,sign,setsign}=useContext(Flight)
                 </a>
               </span>
             </li>
-            <li data-cy="menu_Forex" className="menu_Forex" style={{marginLeft:'-30px',}}>
+            <li data-cy="menu_Forex" className="menu_Forex" style={{marginLeft:'-45px',}}>
               <span data-cy="item-wrapper">
                 <a
                   className="headerIcons makeFlex hrtlCenter column"
@@ -273,13 +273,13 @@ const{setflights,sign,setsign}=useContext(Flight)
                     <span className="chNavIcon appendBottom2 chSprite chForex"></span>
                   </span>
                   <span className="headerIconTextAlignment chNavText darkGreyText">
-                    Forex Card &amp; Currency
+                    Forex Currency
                   </span>
                 </a>
               </span>
               <span className="font10 latoBold whiteText newTagImage">new</span>
             </li>
-            <li data-cy="menu_TravelInsurance" className="menu_TravelInsurance" style={{marginLeft:'-30px'}}>
+            <li data-cy="menu_TravelInsurance" className="menu_TravelInsurance" style={{marginLeft:'-45px'}}>
               <span data-cy="item-wrapper">
                 <a
                

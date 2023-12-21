@@ -3,31 +3,34 @@ import Otp from './Otp';
 import Password from './Password';
 import axios from 'axios';
 import Otpsuccess from './Otpsuccess';
-import { Signup,Flight } from './App';
-
+import { Signup,Flight, Otpp } from './App';
+import { Emailcontext } from './App';
 
 export const Email=createContext();
 function Sample() {
+    const {setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}=useContext(Flight)
+    const{otpflag,setotpflag}=useContext(Otpp);
     const[flag,setflag]=useState(false)
     const[flag1,setflag1]=useState(false);
     const[flag2,setflag2]=useState(false);
     const[flag3,setflag3]=useState(false)
     const[flag4,setflag4]=useState(false)
     const [inputValue, setInputValue] = useState('');
-    const {setflights,sign,setsign}=useContext(Flight);
+ const {email,setemail}=useContext(Emailcontext)
 
     const handleChange = (event) => {
       setInputValue(event.target.value);
+      setemail(event.target.value);
     };
   const handlesubmit=(e)=>{
     e.preventDefault();
 console.log('submit')
     axios.post('https://backend-mmt.onrender.com/userCheck',{
         email:inputValue}).then((res)=>{console.log(res)
-        setflag1(true)
+        setpassflag(true)
         setsign(false);
         }).catch((err)=>{console.log(err)
-        setflag2(true)
+        setotpflag(true)
         setsign(false);
         });
      
@@ -146,10 +149,10 @@ console.log('submit')
     </p>
   </div>
 </section>}
-{flag2 && <Email.Provider value={{inputValue,setflag4}}> <Otp></Otp></Email.Provider>}
+{otpflag && <Email.Provider value={{inputValue,setflag4}}> <Otp></Otp></Email.Provider>}
 
-{flag1 &&  <Email.Provider value={{inputValue}}><Password></Password></Email.Provider>}
-{flag4 && <Email.Provider value={{setflag3,inputValue}}><Otpsuccess/></Email.Provider> }
+{passflag &&  <Email.Provider value={{inputValue}}><Password></Password></Email.Provider>}
+{confirmflag && <Email.Provider value={{setflag3,inputValue}}><Otpsuccess/></Email.Provider> }
     </div>
   )
   

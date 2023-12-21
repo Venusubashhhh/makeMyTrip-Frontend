@@ -32,9 +32,16 @@ import Otpsuccess from './Otpsuccess';
 import Profile from './Profile';
 export const Flight=createContext();
 export const Signup=createContext()
+export const Otpp=createContext();
+export const Emailcontext=createContext();
 function App() {
 const [flights,setflights]=useState([]);
 const [sign,setsign]=useState(false);
+const [passflag,setpassflag]=useState(false);
+const[confirmflag,setconfirmflag]=useState(false);
+const [username,setusername]=useState('')
+const[email,setemail]=useState('')
+const[otpflag,setotpflag]=useState(false);
 useEffect(()=>{
   console.log('app.js',flights)
   
@@ -45,17 +52,25 @@ useEffect(()=>{
   
 
 },[sign])
+useEffect(()=>{
+  console.log(username)
+  
+
+},[username])
   return (
     <div className="App">
-<Routes>
-  <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign}}><Home/></Flight.Provider>}></Route> 
+      <Emailcontext.Provider value={{email,setemail}}>
+ <Routes>
+  <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}}>  <Otpp.Provider value={{otpflag,setotpflag}}> <Home/> </Otpp.Provider> </Flight.Provider>}></Route> 
   <Route path='/mytrips' element={<Mytrips/>}></Route> 
   <Route path='/offers' element={<Offers/>}></Route>
   <Route path='/accounts' element={<Accounts/>}></Route>
   <Route path='/flights' element={<Flight.Provider value={{flights}}><Flights/></Flight.Provider>}></Route>
   <Route path='/trains' element={<Trains/>}></Route>
   <Route path='/hotels' element={<Hotels/>}></Route>
-</Routes>
+</Routes> 
+{/* <Profile/> */}
+</Emailcontext.Provider>
     </div>
   );
 }
