@@ -52,7 +52,7 @@ setcities(filteredData)
   onChange={(e)=>setval(e.target.value)}
   onKeyUp={fetch}
 />
-<ul style={{height:'250px',overflowY:'scroll'}}>
+<ul style={{height:'150px',overflowY:'scroll'}}>
         {cities.map((obj, index) => 
         {
           if(obj!=undefined)

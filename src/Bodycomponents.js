@@ -29,7 +29,7 @@ function Bodycomponents() {
       alt="chooseHeaderIcon"
     />
   </div>
-  <div className="choosFrom__wrap">
+  <div className="choosFrom__wrap" style={{width:'1300px'}}>
     <ul data-cy="tertiaryRowItemsContainer" className="choosFrom__list">
       <li className="choosFrom__list--item" data-cy="tertiaryRowItem_Where2Go">
         <span data-cy="tertiaryRowIcon_Where2Go" className="appendRight12">

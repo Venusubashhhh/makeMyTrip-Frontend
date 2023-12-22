@@ -8011,4 +8011,10 @@ img {
 #style-GyHnO.style-GyHnO {  
    --scrollY: 0px;  
     filter: none;  
+   
 }  
+.custom-date-picker input {
+  color: white; /* Change the text color */
+  background-color: transparent; /* Change the background color */
+  /* Add any other styling properties as needed */
+}

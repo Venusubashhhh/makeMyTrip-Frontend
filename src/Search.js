@@ -477,11 +477,13 @@ style={{marginTop:'30px'}}>
         <div style={{ borderLeft: "2px ", height: "100px", }}></div>
           <div
             style={{
-             width:'150px'
+             width:'150px',
+            overflow:'hidden',
+            margin:'20px'
             }}
-            onClick={()=>setflag4(true)}>
+           >
   <label className="snipcss0-4-29-30 snipcss0-3-28-29">
-            <span className="lbl_input appendBottom10 snipcss0-5-30-31 snipcss0-4-29-30">
+            <span className="lbl_input appendBottom10 snipcss0-5-30-31 snipcss0-4-29-30"  onClick={()=>setflag4(true)}>
              Departure
   </span>
    { !flag4 && <p className="blackText font20 code lineHeight36 snipcss0-4-18-21 snipcss0-3-17-20">

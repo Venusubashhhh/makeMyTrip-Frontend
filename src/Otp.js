@@ -38,6 +38,7 @@ e.preventDefault();
   <span
     data-cy="closeModal"
     className="commonModal__close snipcss0-1-1-2"
+    onClick={()=>setotpflag(false)}
   ></span>
   <div className="appendBottom25 snipcss0-1-1-3">
    
@@ -68,10 +69,11 @@ e.preventDefault();
       </div>
     </div>
 
-      <button onClick={verifyotp}
+    <button className="grpBkgSelectBtn text-uppercase   clusterBtn" style={{marginLeft:'160px',marginBottom:'30px'}}
+      onClick={verifyotp}
      
       >
-        <span className="snipcss0-4-15-16">Continue</span>
+        Continue
       </button>
  
     <div className="snipcss0-2-7-17"></div>

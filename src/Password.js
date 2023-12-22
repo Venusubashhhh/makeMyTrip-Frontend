@@ -3,9 +3,11 @@ import axios from 'axios';
 import { Email } from './Sample';
 import { Flight } from './App';
 import { useState } from 'react';
+import { Emailcontext } from './App';
 function Password() {
     const{inputValue}=useContext(Email)
     const [password, setpassword] = useState('');
+
    
     const [flag,setflag]=useState('');
     const {setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}=useContext(Flight)
@@ -19,6 +21,7 @@ console.log('submit')
     axios.post('https://backend-mmt.onrender.com/setPassword',{
         email:inputValue,password:password}).then((res)=>{console.log(res)
         setpassflag(false);
+        setusername(res.data.name)
         }).catch((err)=>console.log(err));
   }
   return (
@@ -32,6 +35,7 @@ console.log('submit')
   <span
     data-cy="closeModal"
     className="commonModal__close snipcss0-1-1-2"
+    onClick={()=>setpassflag(false)}
   ></span>
   <div className="appendBottom25 snipcss0-1-1-3">
    
@@ -62,10 +66,11 @@ console.log('submit')
       </div>
     </div>
 
-      <button
+    <button className="grpBkgSelectBtn text-uppercase   clusterBtn" style={{marginLeft:'160px',marginBottom:'30px'}}
+     
         onClick={handlesubmit}
       >
-        <span className="snipcss0-4-15-16">Continue</span>
+        Continue
       </button>
  
     <div className="snipcss0-2-7-17"></div>

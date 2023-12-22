@@ -23,8 +23,9 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
     const day = ('0' + datee.getDate()).slice(-2);
     const formattedDate = `${year}-${month}-${day}`;
   setStartDate(formattedDate);
-  setflag4(!flag4);
+  setflag4(false);
     // setShowDatePicker(false);
+    console.log(flag4);
    
   };
   const formatDate = (date) => {
@@ -34,7 +35,7 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
       month: 'short',
       day: 'numeric',
     };
-  
+    
     const formattedDate = date.toLocaleDateString(undefined, options);
   
     // Extracting day, month, and year
@@ -64,6 +65,11 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
     );
   };
 
+  var datePickerStyle = {
+    width: '150px', // Adjust the width as needed
+    // Add any other desired styles here
+  };
+
   return (
     <div>
     
@@ -72,6 +78,7 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
           onChange={handleDateChange}
           dateFormat="dd/MM/yyyy"
           withPortal
+          // style={datePickerStyle}
         />}
    
     </div>

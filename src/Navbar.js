@@ -4,11 +4,12 @@ import img from'./assets/Screenshot from 2023-12-20 10-21-32.png'
 import Sample from './Sample'
 import { useState } from 'react'
 import { Flight, Signup } from './App'
-
+import { Emailcontext } from './App'
 export const Visiblity=createContext()
 function Navbar() {
   const[flagg,setflagg]=useState(false);
 const{setflights,sign,setsign}=useContext(Flight)
+const{email,setmail,username}=useContext(Emailcontext)
   return (
     <div style={{backgroundImage:`url(${img})`,
     backgroundSize: 'cover',}}>
@@ -96,7 +97,7 @@ const{setflights,sign,setsign}=useContext(Flight)
       </li>
       </Link>
       <Link t0='/accounts'>
-        <div style={{backgroundColor:'#008cff',borderRadius:'4px' }}   onClick={()=>setsign(true)}  >
+      { (username.length==0) ? <div style={{backgroundColor:'#008cff',borderRadius:'4px' }}   onClick={()=>setsign(true)}  >
       <li
         data-cy="account"
         className="makeFlex hrtlCenter font10 makeRelative lhUser userLoggedOut"
@@ -113,7 +114,10 @@ const{setflights,sign,setsign}=useContext(Flight)
           <p data-cy="LoginHeaderText">Login or Create Account</p>
         </div>
       </li>
-      </div>
+      </div> : <Link to='/profile'><div style={{display:'flex'}}>
+      <div style={{backgroundColor:'#4CAF50',borderRadius:'100px',width:'20px',textAlign:'center',color:'white',marginTop:'10px'}}>{username.slice(0,1)}</div>
+<p  className="latoBold capText font11" style={{color:'white',marginTop:'15px',marginLeft:'5px',marginRight:'10px'}}>hi {username}</p>
+        </div></Link>}
       </Link>
       <li className="makeFlex column makeRelative vrtlCenter conCurLang geoSwitcher"style={{marginTop:'px',backgroundColor:'hsla(0,0%,100%,.15)',borderRadius:'4px',marginLeft:''}}>
         <div>
@@ -130,16 +134,18 @@ const{setflights,sign,setsign}=useContext(Flight)
               className="switcherDownArrow appendLeft10"
             style={{marginLeft:'7px'}}
             ></span>
+            
           </div>
         </div>
       </li>
     </ul>
+    
     <div className="headerOuter" style={{
-            marginTop:'-50px',paddingTop:'30px'
+            marginTop:'-50px',paddingTop:'30px',
           }}>
     <span className="headerModuleFedTest2"></span>
-    <div className="chHeaderWrapper navOnly">
-      <div className="chHeaderContainer">
+    <div className="chHeaderWrapper navOnly" style={{}}>
+      <div className="chHeaderContainer" >
         <span className="logoContainer">
           <a
             data-cy="Logo_38"
@@ -152,7 +158,7 @@ const{setflights,sign,setsign}=useContext(Flight)
             /> */}
           </a>
         </span>
-        <nav className="">
+        <nav className="" >
           <ul className="makeFlex font12 headerIconsGap" style={{paddingTop:'10px'}} >
            <Link to='/flights'>
           <li data-cy="menu_Flights" className="menu_Flights" style={{}}>

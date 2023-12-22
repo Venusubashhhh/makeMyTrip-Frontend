@@ -39,7 +39,7 @@ const [flights,setflights]=useState([]);
 const [sign,setsign]=useState(false);
 const [passflag,setpassflag]=useState(false);
 const[confirmflag,setconfirmflag]=useState(false);
-const [username,setusername]=useState('')
+const [username,setusername]=useState('');
 const[email,setemail]=useState('')
 const[otpflag,setotpflag]=useState(false);
 useEffect(()=>{
@@ -59,7 +59,7 @@ useEffect(()=>{
 },[username])
   return (
     <div className="App">
-      <Emailcontext.Provider value={{email,setemail}}>
+      <Emailcontext.Provider value={{email,setemail,username}}>
  <Routes>
   <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}}>  <Otpp.Provider value={{otpflag,setotpflag}}> <Home/> </Otpp.Provider> </Flight.Provider>}></Route> 
   <Route path='/mytrips' element={<Mytrips/>}></Route> 
@@ -68,8 +68,9 @@ useEffect(()=>{
   <Route path='/flights' element={<Flight.Provider value={{flights}}><Flights/></Flight.Provider>}></Route>
   <Route path='/trains' element={<Trains/>}></Route>
   <Route path='/hotels' element={<Hotels/>}></Route>
+  <Route path='/profile' element={<Profile/>}></Route>
 </Routes> 
-{/* <Profile/> */}
+
 </Emailcontext.Provider>
     </div>
   );

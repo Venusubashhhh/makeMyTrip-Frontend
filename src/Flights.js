@@ -19,6 +19,7 @@ const[to,setto]=useState();
 const[flightname,setflightname]=useState();
 const[arrtime,setarrtime]=useState();
 const[deptime,setdeptime]=useState();
+const[price,setprice]=useState()
 const[depature,setdepature]=([]);
 const[arrival,setarrival]=([]);
   const [checkboxes, setCheckboxes] = useState({
@@ -375,9 +376,14 @@ return (
         </div>
         <div className="pull-right make_relative">
           <button className="grpBkgSelectBtn text-uppercase   clusterBtn" onClick={()=>{setflag1(!flag1)
-          console.log({data});
+          setarrtime(data?.arrival?.time)
+          setdeptime(data?.departure?.time)
+          setfrom(data?.arrival?.city)
+          setto(data?.departure?.city)
+          setflightname(data?.airline.name)
+          setprice(data?.price?.total)
           }}>
-        Book now
+        Book
           </button>
         </div>
       </div>
@@ -418,7 +424,7 @@ return (
         <div className="paddingLR30">
           <div className="makeFlex darkText paddingBottom10">
             <span>
-              <span className="boldFont fontSize16">Coimbatore → Pune</span>
+              <span className="boldFont fontSize16">{from} → {to}</span>
               <span className="padding-10 inlineB verticalAlign">
                 <span className="singleairline">
                   <span
@@ -428,7 +434,7 @@ return (
                 </span>
               </span>
               <span className="mediumBoldFont">
-                Vistara · Fri, 15 Mar 24 · Departure at 15:20 - Arrival at 22:50
+               {flightname} · Departure at {deptime}- Arrival at {arrtime}
               </span>
             </span>
           </div>
@@ -450,7 +456,7 @@ return (
                     <div>
                       <p>
                         <span className="fontSize18 blackFont appendRight5">
-                          ₹ 56,802
+                          ₹ {price}
                         </span>
                         <span className="fontSize12">per adult</span>
                       </p>
@@ -568,7 +574,7 @@ return (
                     <div>
                       <p>
                         <span className="fontSize18 blackFont appendRight5">
-                          ₹ 60,390
+                          ₹ {price+3000}
                         </span>
                         <span className="fontSize12">per adult</span>
                       </p>

@@ -25,6 +25,7 @@ setusername(usersname);
     <p
       data-cy="commonModal"
       className="modalTitle makeFlex hrtlCenter font26 latoBold appendBottom5"
+      onClick={()=>setconfirmflag(false)}
     >
       
       <span className="accountCreatedTitle">
@@ -91,11 +92,11 @@ setusername(usersname);
       Must be atleast 8 characters in length and should contain at least one
       alphabet, one number and one special character @$!%*#?&amp;
     </p>
-
-      <button
+    <button className="grpBkgSelectBtn text-uppercase   clusterBtn" style={{marginLeft:'160px',marginBottom:'30px'}}
+     
      onClick={sendpass}
       >
-        <span>Save and Continue</span>
+        Save and Continue
       </button>
    
   </form>
