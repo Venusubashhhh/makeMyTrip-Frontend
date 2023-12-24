@@ -30,6 +30,7 @@ import Password from './Password';
 import Sample from './Sample';
 import Otpsuccess from './Otpsuccess';
 import Profile from './Profile';
+import Booking from './Booking';
 export const Flight=createContext();
 export const Signup=createContext()
 export const Otpp=createContext();
@@ -60,7 +61,7 @@ useEffect(()=>{
   return (
     <div className="App">
       <Emailcontext.Provider value={{email,setemail,username}}>
- <Routes>
+ {/* <Routes>
   <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}}>  <Otpp.Provider value={{otpflag,setotpflag}}> <Home/> </Otpp.Provider> </Flight.Provider>}></Route> 
   <Route path='/mytrips' element={<Mytrips/>}></Route> 
   <Route path='/offers' element={<Offers/>}></Route>
@@ -69,8 +70,9 @@ useEffect(()=>{
   <Route path='/trains' element={<Trains/>}></Route>
   <Route path='/hotels' element={<Hotels/>}></Route>
   <Route path='/profile' element={<Profile/>}></Route>
-</Routes> 
-
+  <Route path='/booking' element={<Booking/>}/>
+</Routes>  */}
+<Booking/>
 </Emailcontext.Provider>
     </div>
   );

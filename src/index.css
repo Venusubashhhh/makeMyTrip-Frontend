@@ -311,3 +311,796 @@ html[dir="ltr"] .appendRight30  {
 } 
 
 
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap'); 
+  body {  
+    font-family:var(--font-family-lato, Lato, sans-serif);
+    font-size:calc(var(--font-scale, 1)*14px);
+    font-weight:400;
+    line-height:1.5;
+    color:rgb(0 0 0/.85);
+    text-align:left;
+    background:#e5eef4;
+  }  
+* { 
+    box-sizing: border-box;
+} 
+
+* { 
+    -webkit-tap-highlight-color: rgb(0 0 0/0); 
+    padding: 0; 
+    margin: 0; 
+    -webkit-font-smoothing: antialiased;
+} 
+
+.makeFlex { 
+    display: flex;
+} 
+
+.gap20 { 
+    gap: 20px;
+} 
+
+.makeFlex.column { 
+    flex-direction: column;
+} 
+
+.appendBottom20 { 
+    margin-bottom: 20px;
+} 
+
+.makeFlex.spaceBetween { 
+    justify-content: space-between;
+} 
+
+body { 
+    margin: 0; 
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; 
+    font-size: 1rem; 
+    font-weight: 400; 
+    line-height: 1.5; 
+    color: #212529; 
+    text-align: left; 
+    background-color: #fff;
+} 
+
+body { 
+    background: #e5eef4; 
+    color: rgb(0 0 0/.85); 
+    padding: 0; 
+    margin: 0; 
+    font-size: calc(var(--font-scale, 1)*14px); 
+    font-family: var(--font-family-lato, Lato, sans-serif); 
+    font-weight: 400;
+} 
+
+body { 
+    padding: 0; 
+    margin: 0;
+} 
+
+html { 
+    font-family: sans-serif; 
+    line-height: 1.15; 
+    -webkit-text-size-adjust: 100%; 
+    -webkit-tap-highlight-color: transparent;
+} 
+
+html { 
+    background: #e5eef4; 
+    color: rgb(0 0 0/.85); 
+    padding: 0; 
+    margin: 0; 
+    font-size: calc(var(--font-scale, 1)*14px); 
+    font-family: var(--font-family-lato, Lato, sans-serif); 
+    font-weight: 400;
+} 
+
+*,html { 
+    box-sizing: border-box;
+} 
+
+html { 
+    padding: 0; 
+    margin: 0;
+} 
+
+html { 
+    box-sizing: border-box;
+} 
+
+:root { 
+    --font-family-lato: lato, sans-serif;
+} 
+
+.padding20 { 
+    padding: 20px;
+} 
+
+.componentContainer { 
+    width: 880px; 
+    box-shadow: 0 3px 30px 0 rgba(0,0,0,.1); 
+    background-color: #fff; 
+    border-radius: 2px;
+} 
+
+*,:after,:before { 
+    box-sizing: border-box;
+} 
+
+*,:after,:before,html { 
+    box-sizing: border-box;
+} 
+
+*,:after,:before { 
+    -webkit-tap-highlight-color: rgb(0 0 0/0); 
+    padding: 0; 
+    margin: 0; 
+    -webkit-font-smoothing: antialiased;
+} 
+
+.appendTop20 { 
+    margin-top: 20px;
+} 
+
+section { 
+    display: block;
+} 
+
+.flightDetailBlk { 
+    box-shadow: 0 1px 4px 0 rgba(0 0 0 .21);
+} 
+
+.flightDetailBlk { 
+    padding: 12px 0; 
+    border-radius: 2px; 
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.21); 
+    border: 1px solid #e9e9e9; 
+    background-color: #fff; 
+    position: relative;
+} 
+
+p { 
+    margin-top: 0; 
+    margin-bottom: 1rem;
+} 
+
+p { 
+    margin: 0; 
+    list-style: none; 
+    padding: 0;
+} 
+
+p { 
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
+} 
+
+.blackText { 
+    color: #000;
+} 
+
+.fontSize18 { 
+    font-size: calc(var(--font-scale, 1)*18px);
+} 
+
+.blackFont { 
+    font-weight: 900;
+} 
+
+.appendBottom5 { 
+    margin-bottom: 5px;
+} 
+
+.blackText { 
+    color: #000000;
+} 
+
+.appendBottom15 { 
+    margin-bottom: 15px;
+} 
+
+.make_flex { 
+    display: flex!important;
+} 
+
+.refundSection { 
+    background-color: #f5f5ff; 
+    padding: 15px;
+} 
+
+.flDetailHdr { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-left: 4px solid #249995; 
+    padding: 0 12px;
+} 
+
+.flightItenaryWrap { 
+    padding: 15px 15px 0;
+} 
+
+.flightItenaryHdr { 
+    display: flex; 
+    justify-content: space-between; 
+    flex-direction: row; 
+    align-items: center; 
+    margin-bottom: 10px;
+} 
+
+.flightItenary { 
+    background-color: #f4f4f4; 
+    padding: 16px; 
+    flex-direction: column; 
+    position: relative;
+} 
+
+.flightItenary { 
+    display: flex; 
+    justify-content: space-between;
+} 
+
+.relative { 
+    position: relative;
+} 
+
+.baggageTag { 
+    background-color: #d9edff; 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    border-radius: 2px; 
+    padding: 7px 15px;
+} 
+
+.baggageArrowUp:before { 
+    width: 0; 
+    height: 0; 
+    border-left: 12px solid transparent; 
+    border-right: 12px solid transparent; 
+    border-bottom: 10px solid var(--pseudo-arrow-bg-color,#d9edff); 
+    -webkit-transform: rotate(45deg); 
+    transform: rotate(0deg); 
+    content: ""; 
+    top: -8px; 
+    position: absolute; 
+    right: 40px;
+} 
+
+.refundHdr { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+} 
+
+.flightDetails.reviewCanPolicyWrapper { 
+    border-radius: 4px; 
+    border: 0; 
+    width: 100%;
+} 
+
+h3 { 
+    margin-top: 0; 
+    margin-bottom: .5rem;
+} 
+
+h3 { 
+    margin-bottom: .5rem; 
+    font-weight: 500; 
+    line-height: 1.2;
+} 
+
+h3 { 
+    font-size: 1.75rem;
+} 
+
+h3 { 
+    margin: 0; 
+    list-style: none; 
+    padding: 0;
+} 
+
+h3 { 
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
+} 
+
+.fontSize16 { 
+    font-size: calc(var(--font-scale, 1)*16px);
+} 
+
+h2 { 
+    margin-top: 0; 
+    margin-bottom: .5rem;
+} 
+
+h2 { 
+    margin-bottom: .5rem; 
+    font-weight: 500; 
+    line-height: 1.2;
+} 
+
+h2 { 
+    font-size: 2rem;
+} 
+
+h2 { 
+    margin: 0; 
+    list-style: none; 
+    padding: 0;
+} 
+
+h2 { 
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
+} 
+
+.flDetailHdr h2  { 
+    font-size: calc(var(--font-scale, 1)*18px); 
+    font-weight: 900; 
+    color: #000;
+} 
+
+.appendTop10 { 
+    margin-top: 10px;
+} 
+
+.appendTop10 { 
+    margin-top: 10px !important;
+} 
+
+.refundTag { 
+    padding: 0 5px; 
+    border-radius: 2px; 
+    background-image: linear-gradient(81deg,#f5515f,#9f0404); 
+    color: #fff; 
+    font-size: 10px; 
+    font-weight: 700; 
+    display: inline-flex; 
+    text-transform: uppercase; 
+    align-self: flex-end;
+} 
+
+.linkText { 
+    all: unset; 
+    color: #0091ff; 
+    cursor: pointer;
+} 
+
+.fontSize14 { 
+    font-size: calc(var(--font-scale, 1)*14px);
+} 
+
+.textRight { 
+    text-align: right;
+} 
+
+html[dir="ltr"] .textRight  { 
+    text-align: right;
+} 
+
+.flightItineraryDetails { 
+    display: flex; 
+    justify-content: space-between;
+} 
+
+.flightItineraryDetails { 
+    flex-direction: row;
+} 
+
+.baggageInfo { 
+    display: flex; 
+    gap: 12px; 
+    border-top: 1px solid #d8d8d8; 
+    padding-top: 12px; 
+    margin-top: 12px;
+} 
+
+.baggageContent { 
+    display: flex; 
+    align-items: center;
+} 
+
+.makeFlex.hrtlCenter { 
+    align-items: center;
+} 
+
+.cancSecWrap { 
+    border-bottom: 1px solid #ddd;
+} 
+
+.cancSecWrap:last-child { 
+    border-bottom: none;
+} 
+
+.appendBottom10 { 
+    margin-bottom: 10px;
+} 
+
+.unsureBanner { 
+    background: #fff; 
+    padding: 10px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,.15); 
+    border-radius: 2px;
+} 
+
+b { 
+    font-weight: bolder;
+} 
+
+b  { 
+    font-weight: 900;
+} 
+
+.gap-x-10 > *  { 
+    margin-right: 10px;
+} 
+
+.scheduleDay { 
+    background-color: #ffedd1; 
+    padding: 2px 5px; 
+    font-size: calc(var(--font-scale, 1)*14px); 
+    font-weight: 700;
+} 
+
+.gap-x-10 > :last-child  { 
+    margin: 0!important;
+} 
+
+.icon24 { 
+    width: 24px; 
+    height: 24px;
+} 
+
+.bgProperties { 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    display: inline-block; 
+    background-size: contain;
+} 
+
+.flexOne { 
+    flex: 1;
+} 
+
+.makeFlex .flexOne  { 
+    flex: 1;
+} 
+
+.baggageSection { 
+    display: flex; 
+    align-items: center;
+} 
+
+.icon20 { 
+    width: 20px; 
+    height: 20px;
+} 
+
+.appendRight10 { 
+    margin-right: 10px;
+} 
+
+html[dir="ltr"] .appendRight10  { 
+    margin-right: 10px;
+} 
+
+.fontSize12 { 
+    font-size: calc(var(--font-scale, 1)*12px);
+} 
+
+.boldFont { 
+    font-weight: 700;
+} 
+
+.darkText { 
+    color: #4a4a4a;
+} 
+
+.flightDetailsInfo { 
+    padding: 13px 0 12px;
+} 
+
+.timeLineDetailsInfo { 
+    padding: 0 0 17px;
+} 
+
+.appendTop2 { 
+    margin-top: 2px;
+} 
+
+.aircraftType { 
+    border: 1px solid; 
+    border-radius: 16px; 
+    background: #fff; 
+    padding: 0 7px; 
+    font-size: calc(var(--font-scale, 1)*12px); 
+    color: #757575; 
+    font-weight: 900; 
+    display: flex; 
+    align-items: center; 
+    height: 18px;
+} 
+
+.icon16 { 
+    width: 16px; 
+    height: 16px;
+} 
+
+.appendLeft5 { 
+    margin-left: 5px;
+} 
+
+html[dir="ltr"] .appendLeft5  { 
+    margin-left: 5px;
+} 
+
+.itenaryLeft { 
+    flex: 1; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%;
+} 
+
+.itenaryLeft:before { 
+    content: ""; 
+    position: absolute; 
+    top: 20px; 
+    height: calc(100% - 40px); 
+    border-left: 2px dashed #979797; 
+    left: 55px;
+} 
+
+.appendRight5 { 
+    margin-right: 5px;
+} 
+
+html[dir="ltr"] .appendRight5  { 
+    margin-right: 5px;
+} 
+
+.appendLeft3 { 
+    margin-left: 3px;
+} 
+
+.appendLeft10 { 
+    margin-left: 10px;
+} 
+
+html[dir="ltr"] .appendLeft10  { 
+    margin-left: 10px;
+} 
+
+.cancInfoLeft { 
+    min-width: 140px; 
+    font-size: calc(var(--font-scale, 1)*12px); 
+    color: #4a4a4a; 
+    font-weight: 700; 
+    max-width: 140px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    padding-bottom: 15px;
+} 
+
+input { 
+    margin: 0; 
+    font-family: inherit; 
+    font-size: inherit; 
+    line-height: inherit;
+} 
+
+input { 
+    overflow: visible;
+} 
+
+.pointer { 
+    cursor: pointer;
+} 
+
+input[type="checkbox"] { 
+    box-sizing: border-box; 
+    padding: 0;
+} 
+
+input[type="checkbox"]:checked ~ .box  { 
+    background: #008cff; 
+    border: 0;
+} 
+
+.fontSize11 { 
+    font-size: calc(var(--font-scale, 1)*11px);
+} 
+
+.unsurePersuasion { 
+    border-radius: 6px; 
+    padding: 4px 12px; 
+    margin-top: 4px;
+} 
+
+.layover { 
+    padding: 7px 20px; 
+    margin-left: 57px;
+} 
+
+.itenaryLeft .overideBg  { 
+    position: relative; 
+    background-color: #f4f4f4;
+} 
+
+.arln-logo { 
+    width: 32px; 
+    height: 32px; 
+    display: block; 
+    background-position: 50%; 
+    background-size: contain; 
+    background-repeat: no-repeat;
+} 
+
+.cancGradline { 
+    height: 6px; 
+    margin: 3px 0 8px; 
+    border-radius: 12px;
+} 
+
+.cancTimeline { 
+    display: flex; 
+    justify-content: space-between;
+} 
+
+.unsureBannerRight { 
+    text-align: right;
+} 
+
+.time-info-ui { 
+    width: 62px; 
+    justify-content: space-between;
+} 
+
+.cancPriceInfo { 
+    flex: 1; 
+    text-align: center; 
+    color: #000; 
+    font-weight: 900;
+} 
+
+.cancTimeNode { 
+    position: relative; 
+    color: #4a4a4a;
+} 
+
+.cancTimeNode:before { 
+    position: absolute; 
+    content: ""; 
+    height: 29px; 
+    border-left: 1px dashed #a9a9a9; 
+    left: 18px; 
+    top: -30px;
+} 
+
+.cancTimeNode:first-child:before,.cancTimeNode:last-child:before { 
+    border-left: none;
+} 
+
+.flightItenary .layoverCircle  { 
+    border: 2px solid #979797; 
+    width: 11px; 
+    height: 11px; 
+    border-radius: 50%; 
+    display: inline-flex; 
+    background-color: #f4f4f4; 
+    position: relative; 
+    top: 5px; 
+    margin: 0 px;
+} 
+
+.inlineB { 
+    display: inline-block;
+} 
+
+.couponApplyTag { 
+    display: flex; 
+    background-color: #ddfffe; 
+    border-radius: 12px; 
+    padding: 4px 8px; 
+    font-size: calc(var(--font-scale, 1)*12px); 
+    line-height: 12px; 
+    color: #007e7d; 
+    font-weight: 700; 
+    text-transform: uppercase;
+} 
+
+.tncText { 
+    cursor: pointer;
+} 
+
+.tncText { 
+    margin-left: 5px; 
+    color: #0084ff; 
+    text-decoration: none;
+} 
+
+.tncText { 
+    color: #fff; 
+    text-align: center;
+} 
+
+.tncText { 
+    font-size: calc(var(--font-scale, 1)*12px);
+} 
+
+.couponIcon { 
+    width: 16px; 
+    height: 10px; 
+    margin-right: 5px;
+} 
+
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-DxY7K.style-DxY7K {  
+   background-color: rgb(255, 237, 209);  
+}  
+#style-rlGvb.style-rlGvb {  
+   background-image: linear-gradient(to right, rgb(45, 193, 140), rgb(33, 147, 147));  
+}  
+#style-EA9Hz.style-EA9Hz {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=17");  
+}  
+#style-ITZV9.style-ITZV9 {  
+   background-color: rgba(0, 0, 0, 0);  
+    border-color: rgb(117, 117, 117);  
+}  
+#style-LZWzN.style-LZWzN {  
+   background-image: url("//jsak.mmtcdn.com/flights/assets/media/traveller-info.1aa44be7.png");  
+}  
+#style-4cBtU.style-4cBtU {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/review/cabin_baggage_icon.png?v=2");  
+}  
+#style-MiGES.style-MiGES {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/review/checkin_baggage_icon.png");  
+}  
+#style-65xhj.style-65xhj {  
+   background-color: rgb(245, 245, 255);  
+    --pseudo-arrow-bg-color: #f5f5ff;  
+}  
+#style-Ko12v.style-Ko12v {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/extra-bag.png");  
+}  
+#style-Gk7vs.style-Gk7vs {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=17");  
+}  
+#style-5FcWY.style-5FcWY {  
+   background-image: linear-gradient(to right, rgb(1, 149, 60), rgb(131, 180, 48), rgb(214, 158, 21), rgb(250, 93, 93));  
+}  
+#0.style-v2Nlp {  
+   background-color: rgb(255, 255, 255);  
+}  
+#style-3sMoP.style-3sMoP {  
+   background-image: linear-gradient(to right, rgb(200, 109, 215), rgb(48, 35, 174));  
+    background-clip: text;  
+    -webkit-text-fill-color: transparent;  
+}  
+#style-QL11o.style-QL11o {  
+   background-color: rgb(221, 255, 254);  
+}  
+#style-G9oop.style-G9oop {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/review/ancillary_coupon_icon.png");  
+}  
+#style-m8ORk.style-m8ORk {  
+   background-image: url("https://imgak.mmtcdn.com/flights/assets/media/dt/review/zc_icon_v2.png");  
+}  
+#style-1qhgL.style-1qhgL {  
+   background-color: rgb(245, 245, 255);  
+}  
+#style-Nf47h.style-Nf47h {  
+   background-image: linear-gradient(to right, rgb(48, 35, 174), rgb(145, 32, 134));  
+    background-clip: text;  
+    -webkit-text-fill-color: transparent;  
+}  

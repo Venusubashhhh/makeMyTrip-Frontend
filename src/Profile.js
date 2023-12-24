@@ -154,31 +154,30 @@ setmarriage(res.data.matitalStatus);
         </div>
         
         <ul className="sdeBarNav" style={{marginLeft:'75px',marginTop:'20px'}}>
-          <li style={{ display: 'flex' }}>
+          <li style={{ display: 'flex',marginLeft:'-25px' }}>
 
-            <span className="myPrfilSprit myPrfilSprit__person" style={{ marginTop: '5px' }}></span>
-
+          <img style={{height:'25px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACrElEQVR4nO2YW4hNURjHfxOaSXFcw4OkJpfkkltu4UVTPPDiNimFmVBKCeNSRIxBHpjGJCkevDM8uJY3HjzMkQfhZWrCwzwYt3Gb0Vf/o43Omb332eespfavVp32Xv/v/Nc6Z63vWwtSUrxjCnAGyALdalk9s3feMgg4C3wH+vK0b8BpYCCeUQXclkkbQAuwEBgCDAUWARcDg2uTxhtaZOwNMLtAv3nAO/VtxhOWy9BnYHqI/jOAL9IsxQPuy0xDBM0hae7imDFAL/BB//ew2Lr4CPwERuOQjZrJmzG0t6Rdj0MOyMSJGNpGaffjkCaZ2BdDa5o+xXBGg0ycjKE9VcTgE2NDIDFFJZf41uHJLmQ7S1gyvuxCxj3NpC3osByW5g4esCyQiS3L9sdMZWL75ZbgCc0axFvVO/lYEKiFzuMRVVrIuWq0FVisdZHR50vAD/W5AVTi4XmgSTV/ofNAo4/ngSCTNZB24L1au/b9SX/0TEn5TQUwDdgJXAeeAh3AJ7UOPbN3O9TXNM6xXaYeeFZg4eZrL1SJjnC14+xVCZEz1AlcA7YBc4DxwGA1+zwXqFOfzoCuG9ijmGVh/l8zbuXAamBAhBjWd42OlLk42X6SYCKsVclgX/gSqEnoUuC5YvYAmygRB1W/5MqAJDNpJXBBsXsjXhCEYquCWymwi9JRH8jk25MKWqP6xmZmM6VnS6DsWFFssExgxzhK+TgeuOkbVkygVgV6VObEUwE8KPYKcpaOfD0q0MrNVOCrPIQ5KP3DFc2AXZm74pw8XI4qHKVjn41+Iu6YoJ3Pcs/IKMLdRVwZJk2bvJinyPeWtbinNs5kPpRoJe5ZJS92jR+aYxI9BqpxRzXwRF6ORBEOB17HqPFL1V7JUyTGqXbvcmi8C7gKjI1qPiUlhf+DXwa9EmTowjmlAAAAAElFTkSuQmCC"></img>
             <p style={{ marginTop: '8px', marginLeft: '5px' }}>Profile</p>
           </li>
-          <li style={{ display: 'flex' }}>
+          <li style={{ display: 'flex',marginLeft:'-25px' }}>
             <span className="sdeBarNav__iconContnr">
-              <span className="myPrfilSprit myPrfilSprit__login"></span>
+            <img  style={{height:'25px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR4nO2aTQrCMBBGX3dzgdafW3sQL+BSXYm4qOLPaSrBKt0E0QydpMyDbFMe8yWdpoEXB6AzGiegQgExlHgP0RYRjQmtnisukoZXJIZHKxGPVgyPViKTiZY64iKZIV6R79TABlhRcEUa4NzPG2SKFKmBtp/zBswpUKSxkNAWGcYpSCwYEVESGUrcx5bQEjGX0BAJEhdriVSR2UDiASwxRP4UCZW4ZnCUtJuKyDZV5C1TfLSy2rECvv3mVhlRblHa0lsU08434G38D2vm89Iq9Zu9BvbAmhEQP3zIDPGKZIb4P8Q0JnMaLy4SwSuSiEcrhkcr52h1RkNFpOovf1lJHDUunj0BrAV1jcheauIAAAAASUVORK5CYII="/>
             </span>
             <p style={{ marginTop: '3px', marginLeft: '5px' }}>Login Details</p>
           </li>
           <li
-            style={{ display: 'flex' }}
+            style={{ display: 'flex',marginLeft:'-28px' }}
           >
             <span className="sdeBarNav__iconContnr">
-              <span className="myPrfilSprit myPrfilSprit__traveller"></span>
+            <img style={{height:'30px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEBklEQVR4nO2aW4hVVRjHf+OMjo6j4yVHZ7xUSoZjF9Au4AimpBY9pyEa2UPpgw/2okIvGVgj1oP1UPMUBJYKOtCTYt7TKVK0C+pkoWZeQEjT1GzyxIL/hoWcmbP2PuusvWX2DzbDwPf919r/s9fa61trQ05OTk5OTk6OP5qB5cBXQBdwA/gbOAPsAd4BZgJVvWg0KeZ5oFX/Z54xwEbgNlBwuI4Bi4oY8W0P8b/KvElkkOeAy+roP8DnwCvARKBO1wTgJeBD4Lx1YztkHjLjCHAV+AnYJaOuWvH/AuuBQWSEheqU6dwXutFSDACWApeUZ8xr6SW+SkOhHbijnFPAg6TMDOAW8B+wIkH+aGCnbuh3R/OeAL5Xzm9pmlBnPcprytCpBb6WzuESk2PEYGCvco4CNaTAGmsMl8sQ4Jz0ljjm1GsYmJxVBKYW+BO4C0zzOJdEQ8H1F52lPlyXIcF4QZ3d71k3+kVfjJETDZ9XCchHHsZ+Md6XrllPuLJUOR0E5Bs1at4CPpkj3UMxclqU8zMBOa1GH/as+4i1LnClXjlmHgjGDTVqXoU+qbdWk640KOcaAbmpRn0vR+uka4onVyZbtUIw/lCjpvLzyVjpmgVWnDrE5HQSkB/V6GOedR+X7g8xct5WzscEZL8aNe77ZLZ098XI2a0cU1oH41M1utKz7lvS/cQxvlnV4R0VVsF4XR390rPuFum+5hj/ruK3E5ipavisY/XmQpVVEPW2NxAxHLii+PkEpp+KFp+rwVbpnZN+KTYq/gAp8V7M8VqKdumtc4g1k2+3rmdJiSnWErSxTK3R0jGl7aMlYscBF9S2KZ5SpSNB9dZbdbmtRNwDwHHrVdmflGnRY2heQ08n1HhG+d0Ok9931kJpJBlhnTrVpZk5DiOAX5S/wSE+2hovd8h5pUYzsenYQVVnLgyz9hXMWcDAGAZkjrHWHoFrUdKp+NOa2LifDYiWpXE6WEhQURas/b9qMkghgQFxiIZaNOdkzohChQ0wK8SXgZNWvjkdeiOtw5HQBmTeiEIgAyKqNQy6LL1TOl0KOjQGAm8mNMDHOC5mhDkzfJIK0wCsBi5aDe9LcUKLjDgrXbN7PZcK0AS0aSu6YC1mFsS4iZoiv5ovI4YCmywTXPYXnA8u2u/5DGZXmS5Xyohqq1hzPXbvkenAVn0IUdBf8/9T+KMSRowC/pLWvCQCjcBmq0O39QSYJ6FS+DbiA2l8FjfxIZ22RJsebYE/V/NlxDwr15lB1uGH2YAYT3oUMyLJZY7znFmrpCuOHy6FNOJEQgOcP+YYbk0ci+mDLLPW1pkoMELTIQPMMOiTnJEB5kPlPsmtMmfbEFdFT4MOZOAGvc3oOTk5OTk5OTn0wP+S78uPO61PXAAAAABJRU5ErkJggg==" />
             </span>
             <p style={{ marginTop: '5px', marginLeft: '5px' }}>Save Travellers</p>
           </li>
           <li
-            style={{ display: 'flex' }}
+            style={{ display: 'flex',marginLeft:'-30px' }}
           >
             <span className="sdeBarNav__iconContnr">
-              <span className="myPrfilSprit myPrfilSprit__logout"></span>
+            <img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABH0lEQVR4nO3UPyhFYRjH8Q9FqJtiZkEWKcq/xEAZxSIGZbEIkVnZlMGsGBgtFhMLu0wkGUkkJmbp1Eu323XvOfdS1P3WqfO+/Xqe5zzneX6U+E9UYAZHeME7nnGKBdQUE7wJlzjDNFpRiRRGsI87DBUSvBMPmMuji4I/YixJ8GpcYzKmvgtPaM5XyUp4b8N6koqwGlqWlQHco1fhpPCKut8I/skxxr9O6AtZd7AW88nFFhbTL7rxht0fSrCN+czL/jBmBc1yBicYlYWfSFIfulH7nWAQS2lLtpkwwQb24oqrcBXsIQ7DYdEaklTUHsZ3GWU5dFPB/CJvSkwjznGBWXSEXreEr4t+6g16FEE5JnAQnDPam1scBhuP7LzEH+QDIFM8uyGhzT0AAAAASUVORK5CYII="/>
             </span>
             <p style={{ marginTop: '5px', marginLeft: '5px' }}> Logout</p>
           </li>
