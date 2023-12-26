@@ -22,7 +22,7 @@ import CardSlider from './SimpleSlider';
 import SimpleSlider from './SimpleSlider';
 import SimpleSlider2 from './SimpleSlider2';
 import SimpleSlider3 from './SampleSlider3';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import CheckBoxComponent from './CheckBoxComponent';
 import Login from './Login';
 import Otp from './Otp';
@@ -31,10 +31,12 @@ import Sample from './Sample';
 import Otpsuccess from './Otpsuccess';
 import Profile from './Profile';
 import Booking from './Booking';
+import Seatbooking from './Seatbooking';
 export const Flight=createContext();
 export const Signup=createContext()
 export const Otpp=createContext();
 export const Emailcontext=createContext();
+export const Flightcontext=createContext();
 function App() {
 const [flights,setflights]=useState([]);
 const [sign,setsign]=useState(false);
@@ -43,6 +45,16 @@ const[confirmflag,setconfirmflag]=useState(false);
 const [username,setusername]=useState('');
 const[email,setemail]=useState('')
 const[otpflag,setotpflag]=useState(false);
+const [logo,setlogo]=useState();
+const[from,setfrom]=useState();
+const[to,setto]=useState();
+const[flightname,setflightname]=useState();
+const[arrtime,setarrtime]=useState();
+const[deptime,setdeptime]=useState();
+const[price,setprice]=useState()
+const[durationh,setdurationh]=useState();
+const[durationm,setdurationm]=useState();
+const[date,setdate]=useState();
 useEffect(()=>{
   console.log('app.js',flights)
   
@@ -60,8 +72,9 @@ useEffect(()=>{
 },[username])
   return (
     <div className="App">
+      {/* <Flightcontext.Provider value={{from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate}}>
       <Emailcontext.Provider value={{email,setemail,username}}>
- {/* <Routes>
+ <Routes>
   <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}}>  <Otpp.Provider value={{otpflag,setotpflag}}> <Home/> </Otpp.Provider> </Flight.Provider>}></Route> 
   <Route path='/mytrips' element={<Mytrips/>}></Route> 
   <Route path='/offers' element={<Offers/>}></Route>
@@ -71,9 +84,11 @@ useEffect(()=>{
   <Route path='/hotels' element={<Hotels/>}></Route>
   <Route path='/profile' element={<Profile/>}></Route>
   <Route path='/booking' element={<Booking/>}/>
-</Routes>  */}
-<Booking/>
+</Routes> 
+
 </Emailcontext.Provider>
+</Flightcontext.Provider> */}
+<Seatbooking/>
     </div>
   );
 }

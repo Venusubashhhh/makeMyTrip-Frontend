@@ -380,7 +380,7 @@ style={{marginTop:'30px'}}>
   </div>
   <div className="fsw snipcss0-0-0-1 ">
     <div className="fsw_inner returnPersuasion snipcss0-1-1-2 snipcss0-0-0-1" >
-    <div className="flt_fsw_inputBox searchCity inactiveWidget snipcss0-2-2-3 snipcss0-1-1-2" onClick={()=>setflag(!flag)} style={{width:'300px'}}>
+    <div className="flt_fsw_inputBox searchCity inactiveWidget snipcss0-2-2-3 snipcss0-1-1-2" onClick={()=>setflag(!flag)} style={{width:'300px',borderRight:'solid #f2f2f2 1px'}}>
         <label htmlFor="fromCity" className="snipcss0-3-3-4 snipcss0-2-2-3">
           <span className="lbl_input appendBottom10 snipcss0-4-4-5 snipcss0-3-3-4">
             From
@@ -479,7 +479,8 @@ style={{marginTop:'30px'}}>
             style={{
              width:'150px',
             overflow:'hidden',
-            margin:'20px'
+            margin:'20px',
+           
             }}
            >
   <label className="snipcss0-4-29-30 snipcss0-3-28-29">
@@ -495,7 +496,7 @@ style={{marginTop:'30px'}}>
           </label>
        {flag4 && <Data6.Provider value={{day,setday,year,setyear,month,setmonth,flag4,setflag4}}><Data4.Provider value={{setStartDate}}><DateLabel/></Data4.Provider></Data6.Provider>}
           </div>
-      <div className="flt_fsw_inputBox dates reDates inactiveWidget snipcss0-2-2-26 snipcss0-1-1-25">
+      <div className="flt_fsw_inputBox dates reDates inactiveWidget snipcss0-2-2-26 snipcss0-1-1-25" style={{  borderRight:'solid #f2f2f2 1px',  borderLeft:'solid #f2f2f2 1px'}}>
         <div className="returnPersuasionTooltip hide snipcss0-3-26-27 snipcss0-2-25-26">
           <p className="snipcss0-4-27-28 snipcss0-3-26-27">
             Return fares may hike due to high demand. Book now using myBiz
@@ -519,7 +520,7 @@ style={{marginTop:'30px'}}>
       <div
         data-cy="flightTraveller"
         className="flt_fsw_inputBox flightTravllers inactiveWidget snipcss0-2-2-33 snipcss0-1-1-32"
-   
+   style={{  borderLeft:'solid #f2f2f2 1px'}}
       >
         <div >
         <label

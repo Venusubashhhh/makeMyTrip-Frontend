@@ -7,19 +7,15 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+import { Flightcontext } from './App';
 
 function Flights() {
 const[flightlist,setflightlist]=useState([]);
 const[flightlist2,setflightlist2]=useState([]);
 const [sliderValue, setSliderValue] = useState(10000);
 const[flag1,setflag1]=useState(false)
-const [logo,setlogo]=useState();
-const[from,setfrom]=useState();
-const[to,setto]=useState();
-const[flightname,setflightname]=useState();
-const[arrtime,setarrtime]=useState();
-const[deptime,setdeptime]=useState();
-const[price,setprice]=useState()
+const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate}=useContext(Flightcontext)
 const[depature,setdepature]=([]);
 const[arrival,setarrival]=([]);
   const [checkboxes, setCheckboxes] = useState({
@@ -382,6 +378,9 @@ return (
           setto(data?.departure?.city)
           setflightname(data?.airline.name)
           setprice(data?.price?.total)
+          setlogo(data?.airline?.logo)
+          setdurationh(data?.duration?.hours)
+          setdurationm(data?.duration?.minutes);
           }}>
         Book
           </button>
@@ -553,12 +552,12 @@ return (
                       >
                         LOCK PRICE
                       </button>
-                      <button
+ <Link to='/booking'>                 <button
                         type="button"
                         className="lato-black button buttonPrimary buttonBig fontSize14"
-                      >
+                      > 
                         BOOK NOW
-                      </button>
+                      </button></Link>   
                     </div>
                   </div>
                 </div>

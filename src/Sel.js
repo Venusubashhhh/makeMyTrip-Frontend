@@ -22,21 +22,36 @@ export function Sel() {
     },
     ,])
  const{setfromcity,setfromairport,setfromcountry,flag,setflag}=useContext(Data1);
-  const fetch=()=>{
- axios.get('https://backend-mmt.onrender.com/getCities').then((res)=>{
-  
- const filteredData = res.data.map(obj => {
-  if ( obj.city.toLowerCase().startsWith( val.toLowerCase())) {
+ const debounce = (func, delay) => {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+};
 
-    return obj;
-  }
+const debouncedFetch = debounce(fetchCities, 1000); // Adjust the delay as needed
+
+function fetchCities() {
+  axios
+    .get('https://backend-mmt.onrender.com/getCities')
+    .then((res) => {
+      const filteredData = res.data.filter((obj) =>
+        obj.city.toLowerCase().startsWith(val.toLowerCase())
+      );
+      console.log(filteredData);
+      setcities(filteredData);
+    })
+    .catch((e) => console.log(e));
 }
-)
-console.log(filteredData);
-setcities(filteredData)
 
- }).catch((e)=>console.log(e))
-  }
+const handleInputChange = (event) => {
+  const { value } = event.target.value;
+  setval(value);
+  debouncedFetch(); // Trigger debounce after input change
+};
   return (
     <div style={{width:"350px",height:'200px',zIndex:'4',backgroundColor:'white'}}>
       <input
@@ -49,7 +64,7 @@ setcities(filteredData)
   defaultValue=""
   id="style-hGNcM"
   value={val}
-  onChange={(e)=>setval(e.target.value)}
+  onChange={handleInputChange}
   onKeyUp={fetch}
 />
 <ul style={{height:'150px',overflowY:'scroll'}}>
@@ -57,8 +72,8 @@ setcities(filteredData)
         {
           if(obj!=undefined)
           return (
-          <li role="option" id="react-autowhatever-1-section-0-item-0" aria-selected="false" className="react-autosuggest__suggestion react-autosuggest__suggestion--first snipcss-vqZvW" data-section-index="0" data-suggestion-index="0" key={obj.city} 
-         >
+          <li role="option" id="react-autowhatever-1-section-0-item-0" aria-selected="false" className="react-autosuggest__suggestion react-autosuggest__suggestion--first snipcss-vqZvW" data-section-index="0" data-suggestion-index="0" key={index} 
+        >
           <div className="makeFlex hrtlCenter" onClick={()=>{
         setairport(obj.airport)
         setcity(obj.city)

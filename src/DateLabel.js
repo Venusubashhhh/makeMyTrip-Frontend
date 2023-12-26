@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Data4,Data6 } from './Search';
+import { Flightcontext } from './App';
 const DateLabel = () => {
   const[depaturedate,setdepaturedate]=useState('')
   const [selectedDate, setSelectedDate] = useState(null);
@@ -9,7 +10,7 @@ const DateLabel = () => {
 const{setStartDate}=useContext(Data4);
 const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
 
-  
+  const{from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate}=useContext(Flightcontext)
 
   // const toggleDatePicker = () => {
   //   setShowDatePicker(!showDatePicker);
@@ -25,7 +26,8 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
   setStartDate(formattedDate);
   setflag4(false);
     // setShowDatePicker(false);
-    console.log(flag4);
+ console.log(formattedDate)
+    formatDate(datee);
    
   };
   const formatDate = (date) => {
@@ -43,7 +45,7 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
     setday(dayy);
     setmonth(monthh);
     setyear(yearr);
-  
+    setdate(monthh);
     console.log({ selectedDate });
   
     // Splitting the day into individual digits
@@ -78,7 +80,6 @@ const {day,setday,year,setyear,month,setmonth,flag4,setflag4}=useContext(Data6)
           onChange={handleDateChange}
           dateFormat="dd/MM/yyyy"
           withPortal
-          // style={datePickerStyle}
         />}
    
     </div>
