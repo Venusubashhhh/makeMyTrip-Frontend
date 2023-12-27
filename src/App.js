@@ -26,13 +26,16 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import CheckBoxComponent from './CheckBoxComponent';
 import Login from './Login';
 import Otp from './Otp';
+import Spinner from 'react-bootstrap/Spinner';
 import Password from './Password';
 import Sample from './Sample';
 import Otpsuccess from './Otpsuccess';
 import Profile from './Profile';
 import Booking from './Booking';
 import Seatbooking from './Seatbooking';
+import SizesExample from './SizesExample';
 export const Flight=createContext();
+export const Flightss=createContext();
 export const Signup=createContext()
 export const Otpp=createContext();
 export const Emailcontext=createContext();
@@ -55,6 +58,9 @@ const[price,setprice]=useState()
 const[durationh,setdurationh]=useState();
 const[durationm,setdurationm]=useState();
 const[date,setdate]=useState();
+const[flightid,setflightid]=useState("")
+const[tax,settax]=useState();
+const[bookingid,setbookingid]=useState();
 useEffect(()=>{
   console.log('app.js',flights)
   
@@ -72,23 +78,27 @@ useEffect(()=>{
 },[username])
   return (
     <div className="App">
-      {/* <Flightcontext.Provider value={{from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate}}>
+    
+      <Flightcontext.Provider value={{from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}}>
       <Emailcontext.Provider value={{email,setemail,username}}>
  <Routes>
   <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}}>  <Otpp.Provider value={{otpflag,setotpflag}}> <Home/> </Otpp.Provider> </Flight.Provider>}></Route> 
   <Route path='/mytrips' element={<Mytrips/>}></Route> 
   <Route path='/offers' element={<Offers/>}></Route>
   <Route path='/accounts' element={<Accounts/>}></Route>
-  <Route path='/flights' element={<Flight.Provider value={{flights}}><Flights/></Flight.Provider>}></Route>
+  <Route path='/flights' element={<Flightss.Provider value={{flights}}><Flights/></Flightss.Provider>}></Route>
   <Route path='/trains' element={<Trains/>}></Route>
   <Route path='/hotels' element={<Hotels/>}></Route>
   <Route path='/profile' element={<Profile/>}></Route>
   <Route path='/booking' element={<Booking/>}/>
+  <Route path='/seatbooking' element={<Seatbooking/>}/>
 </Routes> 
 
 </Emailcontext.Provider>
-</Flightcontext.Provider> */}
-<Seatbooking/>
+</Flightcontext.Provider>
+{/* <SizesExample/> */}
+{/* <Seatbooking/> */}
+
     </div>
   );
 }

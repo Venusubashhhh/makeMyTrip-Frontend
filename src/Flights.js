@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { Data5 } from './Search';
-import { Flight } from './App';
+import { Flightss } from './App';
 import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,13 +9,16 @@ import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { Flightcontext } from './App';
+import Stack from '@mui/material/Stack';
+import LinearProgress from '@mui/material/LinearProgress';
+
 
 function Flights() {
 const[flightlist,setflightlist]=useState([]);
 const[flightlist2,setflightlist2]=useState([]);
 const [sliderValue, setSliderValue] = useState(10000);
 const[flag1,setflag1]=useState(false)
-const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate}=useContext(Flightcontext)
+const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}=useContext(Flightcontext)
 const[depature,setdepature]=([]);
 const[arrival,setarrival]=([]);
   const [checkboxes, setCheckboxes] = useState({
@@ -28,7 +31,7 @@ const[arrival,setarrival]=([]);
 
 
 
-  const {flights}=useContext(Flight);
+  const {flights}=useContext(Flightss);
   useEffect(()=>{
   // setflightlist(flights)
  
@@ -103,7 +106,10 @@ const[arrival,setarrival]=([]);
 }
 ,[checkboxes])
 return (
+  <>
+  { flightlist.length!=0 ? 
   <div style={{display:'inline-flex',marginLeft:'80px'}}>
+
 
   <div style={{backgroundColor:'white',width:'300px',paddingTop:'30px'}}>
      <div style={{marginLeft:'30px',}}>
@@ -381,6 +387,8 @@ return (
           setlogo(data?.airline?.logo)
           setdurationh(data?.duration?.hours)
           setdurationm(data?.duration?.minutes);
+          setflightid(data?.id)
+          settax(data?.price?.tax)
           }}>
         Book
           </button>
@@ -689,7 +697,19 @@ return (
 </div>
 }
 
-    </div>
+    </div> :
+       <div style={{display:'flex',paddingLeft:'20%',backgroundColor:'#15457b',paddingTop:'3%',paddingBottom:'3%'}}>
+    
+       <Stack sx={{ width: '20%', color: 'grey.500',marginTop:'45px' }} spacing={2}>
+       <LinearProgress color="inherit" />
+         <LinearProgress color="inherit" />
+         <LinearProgress color="inherit" />
+       </Stack>
+       <img style={{background:'transparent'}} src='https://imgak.mmtcdn.com/flights/assets/media/dt/listing/fliIcon.png'></img>
+       </div>
+    
+}
+    </>
   )
 }
 

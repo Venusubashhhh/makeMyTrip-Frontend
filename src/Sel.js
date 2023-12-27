@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
+import _ from 'lodash'; // Import lodash
 import { Data1 } from './Search'
 import axios from 'axios'
 export function Sel() {
@@ -22,21 +23,21 @@ export function Sel() {
     },
     ,])
  const{setfromcity,setfromairport,setfromcountry,flag,setflag}=useContext(Data1);
- const debounce = (func, delay) => {
-  let timeoutId;
-  return function (...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
-};
+ useEffect(() => {
+  const debounceTimer = setTimeout(() => {
+    fetchCities();
+  }, 1000);
 
-const debouncedFetch = debounce(fetchCities, 1000); // Adjust the delay as needed
+  return () => {
+    clearTimeout(debounceTimer);
+  };
+}, [val]);
 
 function fetchCities() {
   axios
-    .get('https://backend-mmt.onrender.com/getCities')
+    .get('https://backend-mmt.onrender.com/getCities'
+     
+    )
     .then((res) => {
       const filteredData = res.data.filter((obj) =>
         obj.city.toLowerCase().startsWith(val.toLowerCase())
@@ -47,10 +48,22 @@ function fetchCities() {
     .catch((e) => console.log(e));
 }
 
+// function fetchCities() {
+//   axios.get('https://backend-mmt.onrender.com/getCities')
+//     .then((res) => {
+//       const filteredData = res.data.filter((obj) =>
+//         obj.city.toLowerCase().startsWith(val.toLowerCase())
+//       );
+//       console.log(filteredData);
+//       setcities(filteredData);
+//     })
+//     .catch((e) => console.log(e));
+// }
+
 const handleInputChange = (event) => {
-  const { value } = event.target.value;
-  setval(value);
-  debouncedFetch(); // Trigger debounce after input change
+  setval( event.target.value);
+
+// Trigger debounce after input change
 };
   return (
     <div style={{width:"350px",height:'200px',zIndex:'4',backgroundColor:'white'}}>
@@ -65,7 +78,7 @@ const handleInputChange = (event) => {
   id="style-hGNcM"
   value={val}
   onChange={handleInputChange}
-  onKeyUp={fetch}
+
 />
 <ul style={{height:'150px',overflowY:'scroll'}}>
         {cities.map((obj, index) => 
@@ -93,7 +106,7 @@ const handleInputChange = (event) => {
               </p>
             </div>
             <div className="pushRight font14 lightGreyText latoBold">
-              CJB
+            {obj?.city.slice(0,3).toUpperCase()}
             </div>
           </div>
         </li>

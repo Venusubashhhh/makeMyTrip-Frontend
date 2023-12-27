@@ -20,8 +20,8 @@ function Aeroplane() {
   const [flag5,setflag5]=useState(false)
   const[flag3,setflag3]=useState(false)
   const[flag4,setflag4]=useState(false)
-  const [fromcity,setfromcity]=useState('coimbatore')
-  const[fromairport,setfromairport]=useState('coimbatore Airport')
+  const [fromcity,setfromcity]=useState('Coimbatore')
+  const[fromairport,setfromairport]=useState('Coimbatore Airport')
   const[fromcountry,setfromcountry]=useState('India')
   const [tocity,settocity]=useState('Chennai')
   const[toairport,settoairport]=useState('Chennai Airport')
@@ -37,7 +37,7 @@ const[day,setday]=useState('Sunday');
 const[dayinnum,setdayinnum]=('20')
   function senddata()
   {
-   
+   console.log('data sending')
    axios.post('https://backend-mmt.onrender.com/searchFlights', {
     from: {
       city: fromcity,

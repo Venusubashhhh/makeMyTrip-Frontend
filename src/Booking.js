@@ -1,15 +1,64 @@
 import React, { useContext, useState } from 'react'
 import { Flightcontext } from './App'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 function Booking() {
-  const[firstname,setfirstname]=useState();
-  const[lastname,setlastname]=useState();
- const[phone,setphone]=useState();
- const[countrycode,setcountrycode]=useState();
- const[mail,setmail]=useState();
+  const[firstname,setfirstname]=useState('');
+  const[lastname,setlastname]=useState('');
+ const[phone,setphone]=useState('');
+ const[countrycode,setcountrycode]=useState('');
+ const[mail,setmail]=useState('');
  const [selectedGender, setSelectedGender] = useState('');
+ const[mobileno,setmobileno]=useState('');
+ const[country,setcountry]=useState('');
+ const[pincode,setpincode]=useState('');
+ const[state,setstate]=useState('');
+ const[address,setaddress]=useState('');
+ const[email,setemail]=useState('');
  const [selectedGenderc, setSelectedGenderc] = useState(''); const [selectedGenderi, setSelectedGenderi] = useState('');
  const [flag,setflag]=useState(false); // Initial state is an empty string
+ const[cfirstname,setcfirstname]=useState('');
+ const[clastname,setclastname]=useState('');
+const[dob,setdob]=useState('')
+const [cselectedGender, csetSelectedGender] = useState('');
+const [flag1,setflag1]=useState(false);
+const[ifirstname,setifirstname]=useState('');
+ const[ilastname,setilastname]=useState('');
+const[idob,setidob]=useState('')
+const [iselectedGender, isetSelectedGender] = useState('');
+const [flag2,setflag2]=useState(false);
 
+function sendpassengerdetails()
+{
+axios.post('https://backend-mmt.onrender.com/storePassengerDetails',{
+  adult:{
+    firstName:firstname,
+    lastName:lastname,
+    gender:selectedGender,
+    countryCode:countrycode,
+    mobile:phone,
+    email:mail
+  }
+  ,
+  children:{
+    firstName:cfirstname,
+    lastName:clastname,
+    gender:cselectedGender,
+    dob:dob,
+  }
+  ,
+  infant:{
+    firstName:ifirstname,
+    lastName:ilastname,
+    gender:iselectedGender,
+    dob:idob, 
+  }
+  ,
+ flightId:flightid
+}).then((res)=>{console.log(res)
+setbookingid(res?.data?.bookingId)
+}).catch((err)=>console.log(err))
+}
  const handleGenderChange = (event) => {
    setSelectedGender(event.target.value); // Update the selected gender state
  };
@@ -20,23 +69,17 @@ const handleGenderChangec = (event) => {
   setSelectedGenderi(event.target.value); // Update the selected gender state
 };
 
- const[cfirstname,setcfirstname]=useState();
- const[clastname,setclastname]=useState();
-const[dob,setdob]=useState()
-const [cselectedGender, csetSelectedGender] = useState('');
-const [flag1,setflag1]=useState(false);
-const[ifirstname,setifirstname]=useState();
- const[ilastname,setilastname]=useState();
-const[idob,setidob]=useState()
-const [iselectedGender, isetSelectedGender] = useState('');
-const [flag2,setflag2]=useState(false);
 
-  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate}=useContext(Flightcontext)
+  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}=useContext(Flightcontext)
   return (
-    <div>
+    <>
+    <div></div>
+    <div style={{backgroundColor:'#051423',color:'white',position:'sticky',height:'70px',paddingLeft:'50px'}}><h2 className="blackFont" style={{color:'white',fontSize:'20px',paddingTop:'20px'}}>Complete Your Booking</h2></div>
+    <div style={{backgroundColor:'#051423',height:'100px'}}></div>
+    <div style={{display:'flex'}}>
+<div style={{marginLeft:'5%'}}>
 
-
-<div className="componentContainer padding20 snipcss-EDNob">
+<div className="componentContainer padding20 snipcss-EDNob" >
   <div>
     <div className="appendBottom20">
       <section className="flightDetailBlk undefined">
@@ -224,26 +267,11 @@ const [flag2,setflag2]=useState(false);
       </section>
     </div>    
   </div>
-</div>
-
-
-<div className="travellerWrapper snipcss-QBVar">
+  <div className="travellerWrapper snipcss-QBVar">
   <div className="travellerHeading paddingTop20 appendBottom20">
     <h2 className="fontSize18 blackFont">Traveller Details</h2>
   </div>
-  <div
-    className="infoContactStrip appendBottom10 fontSize12 style-Zwnj3"
-    id="style-Zwnj3"
-  >
-    "Multiple travellers can now receive booking details &amp; other alerts by
-    just adding their contact info!"
-    <span
-      className="newInfoTag appendLeft5 fontSize10 style-AMXR4"
-      id="style-AMXR4"
-    >
-      NEW
-    </span>
-  </div>
+
   <div className="appendBottom20 " id="wrapper_ADULT">
     <div className="adultDetailsHeading">
       <div className="makeFlex perfectCenter">
@@ -257,10 +285,7 @@ const [flag2,setflag2]=useState(false);
           <font className="boldFont">ADULT (12 yrs+)</font>
         </p>
       </div>
-      <div className="makeFlex perfectCenter fontSize14 boldFont">
-        <font color="#4a4a4a">0/2</font>
-        <font color="#9b9b9b">&nbsp;added</font>
-      </div>
+     
     </div>
     <div
       className="alert-wrapper makeFlex appendBottom12 appendTop12 travellerSectionAlert style-LjHLw"
@@ -762,11 +787,129 @@ const [flag2,setflag2]=useState(false);
     </div>
     </div>
     </div>}
+ 
+    </div>
+   
+    
     </div>
     
     </div>
+</div>
+ <div style={{paddingLeft:'20px',paddingBottom:'40px',height:'150px',backgroundColor:'white',marginTop:'10px'}}>
+  <div ></div>
+
+      <p style={{fontWeight:'bold',paddingTop:'20px',paddingBottom:'10px'}}>Bookling details will be sent to</p>
+     <div style={{display:'flex'}}>
+      <div className="relative">
+              <label htmlFor="popup">Country Code</label>
+              <input
+                autoComplete="none"
+                placeholder="Enter country code"
+                className="tvlrInput "
+                type="text"
+                defaultValue=""
+                value={country}
+                onChange={(e)=>setcountry(e.target.value)}
+              />
+            </div>
+            <div className="relative" style={{paddingLeft:'20px'}}>
+              <label htmlFor="popup">Mobile No</label>
+              <input
+                autoComplete="none"
+                placeholder="Enter mobile no"
+                className="tvlrInput "
+                type="text"
+                defaultValue=""
+                value={mobileno}
+                onChange={(e)=>setmobileno(e.target.value)}
+              />
+            </div>
+            <div className="relative" style={{paddingLeft:'20px'}}>
+              <label htmlFor="popup">Email</label>
+              <input
+                autoComplete="none"
+                placeholder="Enter Mail id"
+                className="tvlrInput "
+                type="text"
+                defaultValue=""
+                value={email}
+                onChange={(e)=>setemail(e.target.value)}
+              />
+            </div>
+            </div>
     </div>
+    
+
+<div style={{paddingLeft:'20px',paddingBottom:'40px',marginTop:'10px',backgroundColor:'white',}}>
+      <p style={{fontWeight:'bold',paddingTop:'10px',paddingBottom:'10px',fontSize:'20px'}}>Your Pincode and State</p>
+     <div style={{display:'flex'}}>
+      <div className="relative">
+              <label htmlFor="popup">Pincode Code</label>
+              <input
+                autoComplete="none"
+                placeholder="Enter Pincode"
+                className="tvlrInput "
+                type="text"
+                defaultValue=""
+                value={pincode}
+                onChange={(e)=>setpincode(e.target.value)}
+              />
+            </div>
+            <div className="relative" style={{paddingLeft:'20px'}}>
+              <label htmlFor="popup">State</label>
+              <input
+                autoComplete="none"
+                placeholder="Enter your state"
+                className="tvlrInput "
+                type="text"
+                defaultValue=""
+                value={state}
+                onChange={(e)=>setstate(e.target.value)}
+              />
+            </div>
+            <div className="relative" style={{paddingLeft:'20px'}}>
+              <label htmlFor="popup">Address</label>
+              <input
+                autoComplete="none"
+                placeholder="Enter your address"
+                className="tvlrInput "
+                type="text"
+                defaultValue=""
+                value={address}
+                onChange={(e)=>setaddress(e.target.value)}
+              />
+            </div>
+            </div>
+    </div> 
+    <Link to='/seatbooking'>
+    <button className="grpBkgSelectBtn text-uppercase   clusterBtn"  onClick={sendpassengerdetails} style={{margin:'30px 03px'}}>continue</button>
+    </Link>
     </div>
+    <div style={{backgroundColor:'white',width:'300px',height:'250px',padding:'20px',marginLeft:'50px',marginTop:'20px'}}>
+      <p style={{fontSize:'20px',fontWeight:'bold'}}>
+        Fare Summary
+      </p>
+      <div style={{display:'flex',marginTop:'20px',marginBottom:'10px'}}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style={{marginRight:'6px',marginTop:'3px'}}>
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg>
+      <p style={{fontWeight:'bold',padding:'15px auto'}}>Base Fare  <span style={{marginLeft:'90px'}}>₹{price}</span></p>
+      </div>
+   <hr style={{backgroundColor:'grey'}}></hr>
+   <div style={{display:'flex',marginTop:'10px',marginBottom:'10px'}}>
+   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style={{marginRight:'6px',marginTop:'3px'}}>
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg>
+      <p style={{fontWeight:'bold',padding:'15px auto'}}>Taxes and surcharges  <span style={{marginLeft:'20px'}}>₹{tax}</span></p>
+      </div>
+<hr></hr>
+      <p style={{fontWeight:'bold',fontSize:'17px',padding:'15px auto',marginTop:'20px'}}>Total amount <span style={{marginLeft:'65px'}}>₹{price}</span></p>
+    </div>
+
+    </div>
+    </>
   )
 }
 

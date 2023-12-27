@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Stack from '@mui/material/Stack';
 import ToggleButton from '@mui/material/ToggleButton';
+import { Flightcontext } from './App';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import axios from 'axios';
 function Seatbooking() {
   const [alignment, setAlignment] = React.useState();
   const [alignment1, setAlignment1] = React.useState();
   const [alignment2, setAlignment2] = React.useState();
+  const[fname,setfname]=useState('');
+  const[lname,setlname]=useState('');
+  const[flag1,setflag1]=useState(false);
+  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}=useContext(Flightcontext)
+ 
+  useEffect(()=>{
+    axios.post('https://backend-mmt.onrender.com/getPassengerDetails',{
+      bookingId:bookingid,
+    }).then((res)=>{
+      console.log(res);
+setfname(res?.data?.passengers?.adult?.firstName)
+setlname(res?.data?.passengers?.adult?.lastName)
+    }).catch((err)=>console.log(err))
+  },[bookingid])
   const handleChange2 = (event, newAlignment) => {
     setAlignment2(newAlignment);
     console.log(alignment2);
@@ -131,8 +147,34 @@ function Seatbooking() {
       onChange: handleChange6,
       exclusive: true,
     };
+  
   return (
-    <div style={{backgroundColor:'white',height:'600px',width:'1000px',overflowY:'scroll'}}>
+    <>
+    <div style={{backgroundColor:'#051423',color:'white',position:'sticky',height:'70px',paddingLeft:'50px'}}><h2 className="blackFont" style={{color:'white',fontSize:'20px',paddingTop:'20px'}}>Complete Your Booking</h2></div>
+   
+    <div style={{display:'flex',marginLeft:'5%'}}>
+    <div style={{width:'70%'}}>
+    <div style={{backgroundColor:'white',marginBottom:'10px',width:'100%',paddingLeft:'20px'}}>
+
+    <h2 className="blackFont" style={{fontSize:'20px'}}>Flight Summary</h2>
+    <p>{from}-{to} {date} {durationh}h:{durationm}m</p>
+    </div>
+    <div style={{backgroundColor:'white',marginBottom:'10px',width:'100%',paddingLeft:'20px'}}>
+
+<h2 className="blackFont" style={{fontSize:'20px'}}>Traveller Details</h2>
+<p>{fname} {lname}</p>
+</div>
+<div style={{backgroundColor:'white',marginBottom:'10px',width:'100%'}}>
+
+<h2 className="blackFont" style={{fontSize:'20px',paddingLeft:'20px'}}>Seats</h2>
+{flag1 && <p style={{paddingLeft:'20px'}}> {alignment1}{alignment2}{alignment3}{alignment4}{alignment5}{alignment6}{alignment7} </p>}
+    
+    <div style={{backgroundColor:'white',width:'73%'}}>
+    <h2 className="blackFont" style={{fontSize:'20px',paddingLeft:'20px', paddingTop:'10px',paddingBottom:'10px'}}> {from} - {to}</h2>
+   </div>
+    <div>
+{!flag1 &&
+    <div style={{backgroundColor:'white',height:'600px',width:'100%',overflowY:'scroll'}}>
         <div style={{backgroundColor:'skyblue',paddingLeft:'32%'}}>
             <img src='https://jsak.mmtcdn.com/flights/assets/media/ic_flightSmallFront.1e0e0ad4.png' style={{width:'300px'}}></img>
             <div style={{backgroundColor:'white',width:'300px',height:'300px'}}>
@@ -222,7 +264,46 @@ function Seatbooking() {
             </div>
             <img src='https://jsak.mmtcdn.com/flights/assets/media/ic_flightSmallTail.aa15f774.png' style={{width:'300px'}}></img>
         </div>
+        
     </div>
+    
+}
+    </div>
+    
+    </div>
+    </div>
+    <div style={{backgroundColor:'white',width:'300px',height:'250px',padding:'20px',marginLeft:'50px',}}>
+      <p style={{fontSize:'20px',fontWeight:'bold'}}>
+        Fare Summary
+      </p>
+      <div style={{display:'flex',marginTop:'20px',marginBottom:'10px'}}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style={{marginRight:'6px',marginTop:'3px'}}>
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg>
+      <p style={{fontWeight:'bold',padding:'15px auto'}}>Base Fare  <span style={{marginLeft:'90px'}}>₹{price}</span></p>
+      </div>
+   <hr style={{backgroundColor:'grey'}}></hr>
+   <div style={{display:'flex',marginTop:'10px',marginBottom:'10px'}}>
+   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style={{marginRight:'6px',marginTop:'3px'}}>
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg>
+      <p style={{fontWeight:'bold',padding:'15px auto'}}>Taxes and surcharges  <span style={{marginLeft:'20px'}}>₹{tax}</span></p>
+      </div>
+<hr></hr>
+      <p style={{fontWeight:'bold',fontSize:'17px',padding:'15px auto',marginTop:'20px'}}>Total amount <span style={{marginLeft:'65px'}}>₹{price}</span></p>
+    </div>
+    </div>
+    {! flag1 &&
+    <button className="grpBkgSelectBtn text-uppercase   clusterBtn"   style={{margin:'30px 80px'}} onClick={()=>{
+      setflag1(!flag1)
+    }}>continue</button>
+    }
+    {flag1 &&
+     <button className="grpBkgSelectBtn text-uppercase   clusterBtn"   style={{margin:'30px 80px'}} >pay</button>
+    }
+    </>
   )
 }
 
