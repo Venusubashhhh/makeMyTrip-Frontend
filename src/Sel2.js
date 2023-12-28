@@ -21,7 +21,7 @@ export function Sel2() {
 //     __v: 0
 //     },
 //     ,])
-//  const{settocity,settoairport,settocountry,flag1,setflag1}=useContext(Data2);
+ const{settocity,settoairport,settocountry,flag1,setflag1}=useContext(Data2);
 
 //  useEffect(() => {
 //   const debounceTimer = setTimeout(() => {
@@ -185,13 +185,14 @@ const handleInputChange = (event) => {
           <li role="option" id="react-autowhatever-1-section-0-item-0" aria-selected="false" className="react-autosuggest__suggestion react-autosuggest__suggestion--first snipcss-vqZvW" data-section-index="0" data-suggestion-index="0" key={index} 
         >
           <div className="makeFlex hrtlCenter" onClick={()=>{
-        setairport(obj.airport)
-        setcity(obj.city)
-        setcountry(obj.country)
-        setfromairport(obj.airport)
-        setfromcity(obj.city)
-        setfromcountry(obj.country)
-      setflag(!flag)}}
+         setairport(obj.airport)
+                 setcity(obj.city)
+                  setcountry(obj.country)
+                  settoairport(obj.airport)
+                  settocity(obj.city)
+                  settocountry(obj.country)
+             setflag1(!flag1)}
+          }
         >
             <img className="icLocAlt appendRight8" src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/ic-flight-onward.png" alt="icon"/>
             <div className="calc60">

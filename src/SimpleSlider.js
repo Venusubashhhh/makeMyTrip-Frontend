@@ -13,7 +13,7 @@ function SimpleSlider() {
     slidesToScroll: 1
   };
   return (
-    <div className='carosol' style={{marginTop:'50px'}}>
+    <div className='carosol' style={{marginTop:'50px',backgroundColor:'white'}}>
     <h2> Unlock Lesser-Known Wonders of India
 
 </h2>

@@ -202,7 +202,7 @@ export default function Buttonsel() {
   <div className="right makeFlex hrtlCenter">
     <div>
     </div>
-    <button type="button" data-cy="travellerApplyBtn" className="primaryBtn btnApply pushRight" style={{padding:'5px',marginLeft:'210px'}}
+    <button type="button" data-cy="travellerApplyBtn" className="primaryBtn btnApply pushRight" style={{padding:'5px',marginTop:'330px',marginLeft:'-350px'}}
     onClick={()=>{
  
    settotalmembers(alignment+alignment22+alignment2)

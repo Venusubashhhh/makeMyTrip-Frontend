@@ -34,12 +34,16 @@ import Profile from './Profile';
 import Booking from './Booking';
 import Seatbooking from './Seatbooking';
 import SizesExample from './SizesExample';
+import Download from './Download';
+import FlightSuccess from './FlightSuccess';
+import FlightFailure from './FlightFailure';
 export const Flight=createContext();
 export const Flightss=createContext();
 export const Signup=createContext()
 export const Otpp=createContext();
 export const Emailcontext=createContext();
 export const Flightcontext=createContext();
+export const Displaycontext=createContext();
 function App() {
 const [flights,setflights]=useState([]);
 const [sign,setsign]=useState(false);
@@ -61,6 +65,21 @@ const[date,setdate]=useState();
 const[flightid,setflightid]=useState("")
 const[tax,settax]=useState();
 const[bookingid,setbookingid]=useState();
+const[paymentid,setpaymentid]=useState();
+const [fromcity,setfromcity]=useState('Coimbatore')
+const[fromairport,setfromairport]=useState('Coimbatore Airport')
+const[fromcountry,setfromcountry]=useState('India')
+const [tocity,settocity]=useState('Chennai')
+const[toairport,settoairport]=useState('Chennai Airport')
+const[tocountry,settocountry]=useState(' India')
+const [startDate, setStartDate] = useState();
+const [startDate2, setStartDate2] = useState();
+const[totalmembers,settotalmembers]=useState('1');
+const[classs,setclasss]=useState('Premium Economy');
+const[month,setmonth]=useState('20 Mar 23');
+const[year,setyear]=useState('');
+const[day,setday]=useState('Sunday');
+const[dayinnum,setdayinnum]=('20')
 useEffect(()=>{
   console.log('app.js',flights)
   
@@ -78,8 +97,8 @@ useEffect(()=>{
 },[username])
   return (
     <div className="App">
-    
-      <Flightcontext.Provider value={{from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}}>
+    <Displaycontext.Provider value={{fromcity,setfromcity,fromairport,setfromairport,fromcountry,setfromcountry,tocity,settocity,tocountry,settocountry,toairport,settoairport,startDate,setStartDate,totalmembers,settotalmembers,classs,setclasss,month,setmonth,year,setyear,day,setday,dayinnum,setdayinnum}}>
+      <Flightcontext.Provider value={{from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid,paymentid,setpaymentid}}>
       <Emailcontext.Provider value={{email,setemail,username}}>
  <Routes>
   <Route path='/' element={<Flight.Provider value={{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}}>  <Otpp.Provider value={{otpflag,setotpflag}}> <Home/> </Otpp.Provider> </Flight.Provider>}></Route> 
@@ -92,13 +111,16 @@ useEffect(()=>{
   <Route path='/profile' element={<Profile/>}></Route>
   <Route path='/booking' element={<Booking/>}/>
   <Route path='/seatbooking' element={<Seatbooking/>}/>
+  <Route path='/flightsuccess' element={<Download/>}/>
+  <Route path='/flightfailure' element={<FlightFailure/>}/>
 </Routes> 
 
 </Emailcontext.Provider>
 </Flightcontext.Provider>
+</Displaycontext.Provider>
 {/* <SizesExample/> */}
 {/* <Seatbooking/> */}
-
+{/* <Download/> */}
     </div>
   );
 }

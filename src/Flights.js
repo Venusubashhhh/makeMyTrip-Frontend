@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { Data5 } from './Search';
-import { Flightss } from './App';
+import { Displaycontext, Flightss } from './App';
 import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -18,7 +18,9 @@ const[flightlist,setflightlist]=useState([]);
 const[flightlist2,setflightlist2]=useState([]);
 const [sliderValue, setSliderValue] = useState(10000);
 const[flag1,setflag1]=useState(false)
+const{flights,setflights}=useContext(Flightss)
 const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}=useContext(Flightcontext)
+const{fromcity,setfromcity,fromairport,setfromairport,fromcountry,setfromcountry,tocity,settocity,tocountry,settocountry,toairport,settoairport,startDate,setStartDate,totalmembers,settotalmembers,classs,setclasss,month,setmonth,year,setyear,day,setday,dayinnum,setdayinnum}=useContext(Displaycontext)
 const[depature,setdepature]=([]);
 const[arrival,setarrival]=([]);
   const [checkboxes, setCheckboxes] = useState({
@@ -31,7 +33,7 @@ const[arrival,setarrival]=([]);
 
 
 
-  const {flights}=useContext(Flightss);
+ 
   useEffect(()=>{
   // setflightlist(flights)
  
@@ -107,6 +109,182 @@ const[arrival,setarrival]=([]);
 ,[checkboxes])
 return (
   <>
+  <header className="search-bar snipcss-jkUT1" id="widgetHeader">
+  <div id="search-widget" className="hsw v2">
+    <div className="hsw_inner">
+      <div className="hsw_inputBox tripTypeWrapper">
+        <label
+          htmlFor="tripType"
+          className="lbl_input latoBold font12 blueText appendBottom5"
+        >
+          TRIP TYPE
+        </label>
+        <div className="selectDropdown make_relative">
+          <span className="downArrow"></span>
+          <div className="multiDropDownVal">One Way</div>
+        </div>
+      </div>
+      <div className="hsw_inputBox width160">
+        <span
+          htmlFor="fromCity"
+          className="lbl_input latoBold font12 blueText appendBottom5"
+        >
+          FROM
+        </span>
+        <input
+          id="fromCity"
+          type="text"
+          className="hsw_inputField font16 whiteText textOverflow"
+          readOnly=""
+          defaultValue={fromcity}
+        />
+      </div>
+      <div>
+        <div className="swap-icon marR8"></div>
+      </div>
+      <div className="hsw_inputBox width160">
+        <span
+          htmlFor="toCity"
+          className="lbl_input latoBold font12 blueText appendBottom5"
+        >
+          TO
+        </span>
+        <input
+          id="toCity"
+          type="text"
+          className="hsw_inputField font16 whiteText textOverflow"
+          readOnly=""
+          defaultValue={tocity}
+        />
+      </div>
+      <div className="hsw_inputBox width160">
+        <span
+          htmlFor="departure"
+          className="lbl_input latoBold font12 blueText appendBottom5"
+        >
+          DEPART
+        </span>
+        <input
+          id="departure"
+          type="text"
+          className="hsw_inputField font16 whiteText textOverflow"
+          title="Thu, Apr 4, 2024"
+          readOnly=""
+          defaultValue={month}
+        />
+      </div>
+      <div className="hsw_inputBox width160">
+        <span
+          htmlFor="return"
+          className="lbl_input latoBold font12 blueText appendBottom5"
+        >
+          RETURN
+        </span>
+        <span className="clearRetDate "></span>
+        <input
+          id="return"
+          type="text"
+          className="hsw_inputField font16 whiteText textOverflow"
+          title=""
+          placeholder="Select Return"
+          readOnly=""
+          defaultValue=""
+        />
+      </div>
+      <div className="hsw_inputBox traveller ">
+        <span
+          htmlFor="travellerAndClass"
+          className="lbl_input latoBold font12 blueText appendBottom5"
+        >
+          PASSENGERS &amp; CLASS
+        </span>
+        <input
+          id="travellerAndClass"
+          type="text"
+          className="hsw_inputField guests font16 whiteText textOverflow"
+          readOnly=""
+          defaultValue="1 Adult, Economy"
+        />
+      </div>
+      <button id="search-button" className="disable-btn" type="button">
+        <span className="disable-btn-txt">SEARCH</span>
+      </button>
+    </div>
+  </div>
+  <div className="fareTypeWrapper">
+    <div className=" flightsContainer makeFlex hrtlCenter ">
+      <span className="lighterGreyText boldFont fontSize12 appendRight10">
+        Fare Type:
+      </span>
+   
+      <ul style={{display:'flex',backgroundColor:'#0a223d',paddingTop:' auto 5px',marginLeft:'5px',color:'white'}}>
+        <input type="radio" name="oneway" style={{marginLeft:'10px'}} placeholder="" />
+        <li className="font12 blackText wrapFilter snipcss0-4-47-63" >
+      
+      <p className="snipcss0-5-63-64" style={{color:'white'}}>
+    Regular
+    <br className="snipcss0-6-52-53" />
+        Fares
+      </p>  
+    </li>
+          <input type="radio" name="oneway" placeholder="" style={{marginLeft:'-35px'}}/>
+          <li className="font12 blackText wrapFilter snipcss0-4-47-51">
+        
+            <p className="snipcss0-5-51-52" style={{color:'white'}}>
+              Armed Forces
+              <br className="snipcss0-6-52-53" />
+              Fares
+            </p>
+           
+          </li>
+          <input type="radio" name="oneway" placeholder="" />
+          <li className="font12 blackText wrapFilter snipcss0-4-47-57" style={{marginRight:'-30px'}}>
+        
+            <p className="snipcss0-5-57-58" style={{color:'white'}}>
+              Student
+              <br className="snipcss0-6-76-77" />
+              Fares
+            </p>
+            
+          </li>
+          <input type="radio" name="oneway" placeholder="" />
+          <li className="font12 blackText wrapFilter snipcss0-4-47-63" >
+      
+            <p className="snipcss0-5-63-64" style={{color:'white'}}>
+              Senior Citizen
+             
+              Fares
+            </p>
+            
+             
+           
+          </li>
+          <input type="radio" name="oneway" placeholder="" />
+          <li className="font12 blackText wrapFilter snipcss0-4-47-69">
+        
+            <p className="snipcss0-5-69-70" style={{color:'white'}}>
+              Doctors & Nurses
+            
+       
+              Fares
+            </p>
+          
+          </li>
+          <input type="radio" name="oneway" placeholder="" />
+          <li className="font12 blackText wrapFilter isItemDisabled snipcss0-4-47-75">
+     
+            <p className="disabled snipcss0-5-75-76" style={{color:'white'}}>
+              Double Seat
+             
+              Fares
+            </p>
+           
+          </li>
+        </ul>
+    </div>
+  </div>
+</header>
+
   { flightlist.length!=0 ? 
   <div style={{display:'inline-flex',marginLeft:'80px'}}>
 
@@ -179,7 +357,7 @@ return (
       {/* Add more checkboxes using FormControlLabel */}
      
       <div className="filtersOuter snipcss-5RcnG">
-  <p className="filtersHeading appendBottom15">Depature at New Delhi</p>
+  <p className="filtersHeading appendBottom15">Depature at {fromcity}</p>
   <div>
     <div className="timeSlotsOuter">
       <div className="appendBottom12 filterTimeSlots snipcss0-0-0-1">
@@ -231,7 +409,7 @@ return (
 </div>
 
 <div className="filtersOuter snipcss-5RcnG">
-  <p className="filtersHeading appendBottom15">Arrival at New Delhi</p>
+  <p className="filtersHeading appendBottom15">Arrival at {tocity}</p>
   <div>
     <div className="timeSlotsOuter">
       <div className="appendBottom12 filterTimeSlots snipcss0-0-0-1">
@@ -678,12 +856,12 @@ return (
                       >
                         LOCK PRICE
                       </button>
-                      <button
+                      <Link to='/booking'>                 <button
                         type="button"
                         className="lato-black button buttonPrimary buttonBig fontSize14"
-                      >
+                      > 
                         BOOK NOW
-                      </button>
+                      </button></Link>   
                     </div>
                   </div>
                 </div>
@@ -698,14 +876,14 @@ return (
 }
 
     </div> :
-       <div style={{display:'flex',paddingLeft:'20%',backgroundColor:'#15457b',paddingTop:'3%',paddingBottom:'3%'}}>
+       <div style={{display:'flex',paddingLeft:'20%',backgroundColor:'#041422',padding:'1% 35%'}}>
     
-       <Stack sx={{ width: '20%', color: 'grey.500',marginTop:'45px' }} spacing={2}>
+       <Stack sx={{ width: '20%', color: 'grey.500',marginTop:'35px' }} spacing={2}>
        <LinearProgress color="inherit" />
          <LinearProgress color="inherit" />
-         <LinearProgress color="inherit" />
+       
        </Stack>
-       <img style={{background:'transparent'}} src='https://imgak.mmtcdn.com/flights/assets/media/dt/listing/fliIcon.png'></img>
+       <img style={{background:'transparent',height:'70px'}} src='https://imgak.mmtcdn.com/flights/assets/media/dt/listing/fliIcon.png'></img>
        </div>
     
 }

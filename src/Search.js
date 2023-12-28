@@ -7,7 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import DateLabel from "./DateLabel";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Flight } from "./App";
+import { Flight, Flightcontext } from "./App";
+import { Displaycontext } from "./App";
 export const Data1=createContext()
 export const Data2=createContext();
 export const Data3=createContext();
@@ -15,26 +16,14 @@ export const Data4=createContext();
 export const Data5=createContext();
 export const Data6=createContext();
 function Aeroplane() {
-  const[flag,setflag]=useState(false)
+const{fromcity,setfromcity,fromairport,setfromairport,fromcountry,setfromcountry,tocity,settocity,tocountry,settocountry,toairport,settoairport,startDate,setStartDate,totalmembers,settotalmembers,classs,setclasss,month,setmonth,year,setyear,day,setday,dayinnum,setdayinnum}=useContext(Displaycontext)
+const{setflights,sign,setsign,passflag,setpassflag,confirmflag,setconfirmflag,username,setusername}=useContext(Flight)  
+const[flag,setflag]=useState(false)
   const[flag1,setflag1]=useState(false)
   const [flag5,setflag5]=useState(false)
   const[flag3,setflag3]=useState(false)
   const[flag4,setflag4]=useState(false)
-  const [fromcity,setfromcity]=useState('Coimbatore')
-  const[fromairport,setfromairport]=useState('Coimbatore Airport')
-  const[fromcountry,setfromcountry]=useState('India')
-  const [tocity,settocity]=useState('Chennai')
-  const[toairport,settoairport]=useState('Chennai Airport')
-  const[tocountry,settocountry]=useState(' India')
-  const [startDate, setStartDate] = useState();
-  const [startDate2, setStartDate2] = useState();
-  const[totalmembers,settotalmembers]=useState('1');
-  const[classs,setclasss]=useState('Premium Economy');
-const{setflights}=useContext(Flight);
-const[month,setmonth]=useState('20 Mar 23');
-const[year,setyear]=useState('');
-const[day,setday]=useState('Sunday');
-const[dayinnum,setdayinnum]=('20')
+
   function senddata()
   {
    console.log('data sending')

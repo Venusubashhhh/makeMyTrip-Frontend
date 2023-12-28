@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router';
 import Stack from '@mui/material/Stack';
 import ToggleButton from '@mui/material/ToggleButton';
 import { Flightcontext } from './App';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useState,useContext } from 'react';
+
 import axios from 'axios';
+import { first } from 'lodash';
 function Seatbooking() {
   const [alignment, setAlignment] = React.useState();
   const [alignment1, setAlignment1] = React.useState();
-  const [alignment2, setAlignment2] = React.useState();
+  const [alignment2, setAlignment2] = React.useState('A2');
   const[fname,setfname]=useState('');
   const[lname,setlname]=useState('');
   const[flag1,setflag1]=useState(false);
-  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}=useContext(Flightcontext)
+
  
+  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid,paymentid,setpaymentid}=useContext(Flightcontext)
+ const navigate=useNavigate()
+  useEffect(()=>{
+   
+  },[paymentid])
   useEffect(()=>{
     axios.post('https://backend-mmt.onrender.com/getPassengerDetails',{
       bookingId:bookingid,
@@ -53,6 +61,58 @@ setlname(res?.data?.passengers?.adult?.lastName)
         onChange: handleChange3,
         exclusive: true,
       };
+const initpayment=(data)=>{
+const options={
+  key:'rzp_test_lxRT5NF1Dopxfd',
+  amount:data.amount,
+  currency:data.currency,
+  order_id:data.id,
+  handler:async(response)=>{
+    setpaymentid(response?.razorpay_payment_id)
+    console.log('response',response)
+    try{
+const {data}=axios.post('https://backend-mmt.onrender.com/payment/verify',response).then(()=>{
+  axios.post('https://backend-mmt.onrender.com/airTicket',{
+    from:from,
+    to:to,
+    duration:durationh,
+    date:date,
+    flightNo:flightid,
+    seatNo:alignment2,
+    passengerName:{
+      firstName:fname,
+      lastName:lname
+    },
+    paymentId:paymentid
+  })
+ navigate('/flightsuccess')
+})
+console.log(data)   
+}
+    catch(error){
+ console.log(error)
+ navigate('/flightfailure')
+    }
+  },
+  theme:{
+    color:'pink'
+  }
+}
+const rzp1=new window.Razorpay(options);
+rzp1.open();
+}
+const handlepayment =async() => {
+  try{
+const {data}=await axios.post('https://backend-mmt.onrender.com/payment/order',{amount:price})
+console.log(data);
+initpayment(data.data)
+
+  }
+  catch(error)
+  {
+    console.log(error);
+  }
+}
 
   const handleChange1 = (event, newAlignment) => {
     setAlignment1(newAlignment);
@@ -153,26 +213,70 @@ setlname(res?.data?.passengers?.adult?.lastName)
     <div style={{backgroundColor:'#051423',color:'white',position:'sticky',height:'70px',paddingLeft:'50px'}}><h2 className="blackFont" style={{color:'white',fontSize:'20px',paddingTop:'20px'}}>Complete Your Booking</h2></div>
    
     <div style={{display:'flex',marginLeft:'5%'}}>
-    <div style={{width:'70%'}}>
-    <div style={{backgroundColor:'white',marginBottom:'10px',width:'100%',paddingLeft:'20px'}}>
+    <div style={{width:'68.5%'}}>
 
-    <h2 className="blackFont" style={{fontSize:'20px'}}>Flight Summary</h2>
-    <p>{from}-{to} {date} {durationh}h:{durationm}m</p>
+    <div className="makeFlex column gap20 snipcss-iBfJd">
+  <div className="">
+    <div id="JOURNEY_SECTION" className="oneCard-element">
+      <div className="componentContainer padding20">
+        <div>
+          <div className="flSummaryHdr">
+            <div className="fltHdr">
+              <h2 className="fontSize18 blackFont">Flights Summary</h2>
+            </div>
+            <span
+              className="bgProperties icon20 style-jliSg"
+              id="style-jliSg"
+            ></span>
+          </div>
+          <div className="flOverviewContent" style={{marginTop:'-20px'}}>
+            <div>
+              <span className="boldFont">
+                <font color="#6d7278">
+                  <b>{from} → {to}</b>
+                </font>
+              </span>
+              <span className="appendLeft10">
+                <font color="#6d7278">{date} · Non Stop · {durationh}h {durationm}m</font>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style={{backgroundColor:'white',marginBottom:'10px',width:'100%',paddingLeft:'20px'}}>
-
-<h2 className="blackFont" style={{fontSize:'20px'}}>Traveller Details</h2>
-<p>{fname} {lname}</p>
+  </div>
+  <div className="" style={{}}>
+    <div className="componentContainer">
+      <div className="overviewSummaryHeading" style={{paddingTop:'25px',paddingLeft:'20px'}}>
+        <h2 className="fontSize18 blackFont heading-text makeFlex gap-x-15">
+          <span>Traveller Details</span>
+          <span className="subHeading greenText">
+            <font color="#6d7278">{fname} {lname}</font>
+          </span>
+        </h2>
+        <span
+          className="bgProperties editIcon style-Wd9r6"
+          id="style-Wd9r6"
+        ></span>
+      </div>
+    </div>
+  </div>
 </div>
-<div style={{backgroundColor:'white',marginBottom:'10px',width:'100%'}}>
 
-<h2 className="blackFont" style={{fontSize:'20px',paddingLeft:'20px'}}>Seats</h2>
-{flag1 && <p style={{paddingLeft:'20px'}}> {alignment1}{alignment2}{alignment3}{alignment4}{alignment5}{alignment6}{alignment7} </p>}
+
+ 
     
-    <div style={{backgroundColor:'white',width:'73%'}}>
-    <h2 className="blackFont" style={{fontSize:'20px',paddingLeft:'20px', paddingTop:'10px',paddingBottom:'10px'}}> {from} - {to}</h2>
-   </div>
-    <div>
+<div style={{    boxShadow: '0 3px 30px 0 rgba(0,0,0,.1)',
+    backgroundColor: '#fff',marginBottom:'10px',width:'99%',marginTop:'30px'}}>
+
+<div className="ancillaryHeader snipcss-8oEof">
+  <ul className="ancillaryTabs">
+    
+  <h2 className="fontSize18 blackFont">Seats</h2>
+  {flag1 && <p style={{paddingLeft:'20px'}}> {alignment1}{alignment2}{alignment3}{alignment4}{alignment5}{alignment6}{alignment7} </p>}
+  </ul>
+  <span className="fontSize16 blackFont"></span>
+</div>
 {!flag1 &&
     <div style={{backgroundColor:'white',height:'600px',width:'100%',overflowY:'scroll'}}>
         <div style={{backgroundColor:'skyblue',paddingLeft:'32%'}}>
@@ -268,6 +372,14 @@ setlname(res?.data?.passengers?.adult?.lastName)
     </div>
     
 }
+
+
+    
+    <div style={{backgroundColor:'white',width:'73%'}}>
+    <h2 className="blackFont" style={{fontSize:'20px',paddingLeft:'20px', paddingTop:'10px',paddingBottom:'10px'}}> {from} - {to}</h2>
+   </div>
+    <div>
+
     </div>
     
     </div>
@@ -301,7 +413,7 @@ setlname(res?.data?.passengers?.adult?.lastName)
     }}>continue</button>
     }
     {flag1 &&
-     <button className="grpBkgSelectBtn text-uppercase   clusterBtn"   style={{margin:'30px 80px'}} >pay</button>
+     <button className="grpBkgSelectBtn text-uppercase   clusterBtn"  onClick={handlepayment} style={{margin:'30px 80px'}} >pay</button>
     }
     </>
   )

@@ -70,12 +70,12 @@ const handleGenderChangec = (event) => {
 };
 
 
-  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid}=useContext(Flightcontext)
+  const {from,setfrom,to,setto,flightname,setflightname,arrtime,setarrtime,deptime,setdeptime,price,setprice,durationh,setdurationh,durationm,setdurationm,logo,setlogo,date,setdate,tax,settax,flightid,setflightid,bookingid,setbookingid,paymentid,setpaymentid}=useContext(Flightcontext)
   return (
     <>
     <div></div>
     <div style={{backgroundColor:'#051423',color:'white',position:'sticky',height:'70px',paddingLeft:'50px'}}><h2 className="blackFont" style={{color:'white',fontSize:'20px',paddingTop:'20px'}}>Complete Your Booking</h2></div>
-    <div style={{backgroundColor:'#051423',height:'100px'}}></div>
+
     <div style={{display:'flex'}}>
 <div style={{marginLeft:'5%'}}>
 
@@ -328,7 +328,7 @@ const handleGenderChangec = (event) => {
       </span>
       <div className="checkboxContent">
         <p className="checkboxTitle">
-          <span className="paxname">ADULT 2</span>
+          <span className="paxname">ADULT 1</span>
         </p>
       </div>
     </label>
@@ -394,51 +394,16 @@ const handleGenderChangec = (event) => {
         <div className="adultItemRow appendBottom15">
           <div className="adultItem style-hn9ko" id="style-hn9ko">
             <label className="makeFlex hrtlCenter">Country Code</label>
-            <div className="selectItem relative ">
-              <div className="selectList css-2b097c-container">
-                <div className="dropdown__control css-yk16xz-control">
-                  <div className="dropdown__value-container css-1hwfws3">
-                    <div className="dropdown__placeholder css-1wa3eu0-placeholder">
-                      Country Code
-                    </div>
-                    <div className="css-1g6gooi">
-                      <div
-                        className="dropdown__input style-L7HoJ"
-                        id="style-L7HoJ"
-                      >
-                        <input
+            <input
                        value={countrycode}
                        onChange={(e)=>setcountrycode(e.target.value)}
                           type="text"
                           aria-autocomplete="list"
                           defaultValue=""
                           className="style-UOToG"
+                          placeholder='Country Code'
                         />
-                        <div id="style-DxTNk" className="style-DxTNk"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="dropdown__indicators css-1wy0on6">
-                    <span className="dropdown__indicator-separator css-1hyfx7x"></span>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown__indicator dropdown__dropdown-indicator css-1eew81i"
-                    >
-                      <svg
-                        height={20}
-                        width={20}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        focusable="false"
-                        className="css-19bqh2r"
-                      >
-                        <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
           </div>
           <div className="adultItem style-Wp2ce" id="style-Wp2ce">
             <div className="relative">
